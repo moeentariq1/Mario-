@@ -66,25 +66,6 @@
             transform: translateX(-3px);
         }
         
-        .two-factor-content {
-            display: none;
-        }
-        
-        .verification-field {
-            display: flex;
-            justify-content: space-between;
-            gap: var(--spacing-2);
-            margin-bottom: var(--spacing-4);
-        }
-        
-        .verification-field input {
-            width: 50px;
-            height: 50px;
-            text-align: center;
-            font-size: var(--font-size-xl);
-            padding: 0;
-        }
-        
         .auth-footer {
             margin-top: var(--spacing-4);
             text-align: center;
@@ -95,12 +76,6 @@
         @media (max-width: 576px) {
             .auth-container {
                 padding: var(--spacing-4);
-            }
-            
-            .verification-field input {
-                width: 40px;
-                height: 40px;
-                font-size: var(--font-size-lg);
             }
         }
     </style>
@@ -195,26 +170,6 @@
             </form>
         </div>
         
-        <div class="tab-content hidden two-factor-content" id="two-factor-content">
-            <form id="two-factor-form">
-                <div class="form-group">
-                    <p>We've sent a verification code to your email. Please enter it below to continue.</p>
-                </div>
-                <div class="verification-field">
-                    <input type="text" maxlength="1" pattern="[0-9]" required>
-                    <input type="text" maxlength="1" pattern="[0-9]" required>
-                    <input type="text" maxlength="1" pattern="[0-9]" required>
-                    <input type="text" maxlength="1" pattern="[0-9]" required>
-                    <input type="text" maxlength="1" pattern="[0-9]" required>
-                    <input type="text" maxlength="1" pattern="[0-9]" required>
-                </div>
-                <button type="submit" class="btn btn-primary full-width">Verify</button>
-                <div class="form-group" style="text-align: center; margin-top: var(--spacing-3);">
-                    <a href="#" id="resend-code">Didn't receive a code? Resend</a>
-                </div>
-            </form>
-        </div>
-        
         <div class="auth-footer">
             <p>By continuing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
         </div>
@@ -250,7 +205,6 @@
             
             // Tab Switching
             const tabs = document.querySelectorAll('.tab');
-            
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
                     // Remove active class from all tabs
@@ -262,7 +216,6 @@
                     // Show corresponding tab content
                     const tabContentId = this.getAttribute('data-tab') + '-content';
                     const tabContents = document.querySelectorAll('.tab-content');
-                    
                     tabContents.forEach(content => {
                         content.classList.add('hidden');
                     });
@@ -274,7 +227,6 @@
             // Handle form submissions
             const loginForm = document.getElementById('login-form');
             const signupForm = document.getElementById('signup-form');
-            const twoFactorForm = document.getElementById('two-factor-form');
             
             loginForm.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -284,15 +236,10 @@
                 const originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
                 
-                // Simulate login process
+                // Redirect directly to search page
                 setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    
-                    // Show 2FA screen (simulated)
-                    document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
-                    document.getElementById('two-factor-content').classList.remove('hidden');
-                    document.querySelectorAll('.tabs').forEach(t => t.style.display = 'none');
-                }, 1500);
+                    window.location.href = 'search-results.html';
+                }, 1000);
             });
             
             signupForm.addEventListener('submit', function(e) {
@@ -316,58 +263,8 @@
                 // Simulate signup process
                 setTimeout(() => {
                     submitBtn.innerHTML = originalText;
-                    window.location.href = 'index.html';
+                    window.location.href = 'search-results.html';
                 }, 2000);
-            });
-            
-            twoFactorForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Show loading state
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
-                
-                // Simulate verification process
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    window.location.href = 'index.html';
-                }, 1500);
-            });
-            
-            // Auto-focus next input in verification code
-            const verificationInputs = document.querySelectorAll('.verification-field input');
-            
-            verificationInputs.forEach((input, index) => {
-                input.addEventListener('keyup', function(e) {
-                    // If the input has a value, focus the next input
-                    if (this.value && index < verificationInputs.length - 1) {
-                        verificationInputs[index + 1].focus();
-                    }
-                    
-                    // If backspace is pressed and input is empty, focus previous input
-                    if (e.key === 'Backspace' && !this.value && index > 0) {
-                        verificationInputs[index - 1].focus();
-                    }
-                });
-            });
-            
-            // Handle resend code
-            const resendCodeBtn = document.getElementById('resend-code');
-            
-            resendCodeBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const originalText = this.innerHTML;
-                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                
-                setTimeout(() => {
-                    this.innerHTML = 'Code sent!';
-                    
-                    setTimeout(() => {
-                        this.innerHTML = originalText;
-                    }, 3000);
-                }, 1500);
             });
             
             // Set initial focus
