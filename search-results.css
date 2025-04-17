@@ -1,0 +1,549 @@
+/* Search Results Page Styles */
+.search-header {
+    background-color: var(--surface);
+    padding: var(--spacing-4) 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.category-tabs {
+    display: flex;
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-3);
+    border-bottom: 1px solid var(--surface-alt);
+    overflow-x: auto;
+    padding-bottom: 2px;
+}
+
+.category-tab {
+    padding: var(--spacing-2) var(--spacing-4);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    color: var(--text-secondary);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.category-tab.active {
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+.voice-search {
+    color: var(--primary);
+    background: transparent;
+    border: none;
+    font-size: var(--font-size-lg);
+    cursor: pointer;
+    padding: var(--spacing-2);
+    border-radius: 50%;
+    transition: background-color var(--transition-fast);
+    margin-right: var(--spacing-2);
+}
+
+.voice-search:hover {
+    background-color: rgba(46, 80, 119, 0.1);
+}
+
+.suggestions {
+    margin-top: var(--spacing-4); /* Increased from var(--spacing-3) */
+    margin-bottom: var(--spacing-3); /* Increased from var(--spacing-1) */
+    box-shadow: none; /* Explicitly remove any inherited shadow */
+}
+
+.suggestions-title {
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+    margin-bottom: var(--spacing-3); /* Increased from var(--spacing-2) */
+}
+
+.suggestion-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-3); /* Increased from var(--spacing-2) */
+}
+
+.suggestion-tag {
+    background-color: var(--surface-alt);
+    color: var(--text-secondary);
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: none; /* Kept existing - confirms no shadow */
+    position: relative;
+    overflow: hidden;
+}
+
+.suggestion-tag:hover {
+    background-color: var(--primary-light);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.suggestion-tag:active {
+    transform: translateY(0);
+}
+
+/* Add ripple effect */
+.suggestion-tag::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.suggestion-tag:active::after {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 1;
+    transition: 0s;
+}
+
+.results-section {
+    margin: var(--spacing-1) 0; /* Significantly reduced space before results */
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-3);
+}
+
+.results-count {
+    font-weight: 500;
+}
+
+.results-sort select {
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--surface-alt);
+    font-size: var(--font-size-sm);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-4);
+}
+
+.result-card {
+    background-color: var(--surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-4);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.savings-badge {
+    background-color: var(--success);
+    color: white;
+    padding: var(--spacing-1) var(--spacing-2);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: var(--spacing-2);
+}
+
+.price-comparison {
+    display: flex;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-2);
+}
+
+.price-option {
+    flex: 1;
+    padding: var(--spacing-2);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.price-option.insurance {
+    background-color: rgba(77, 161, 169, 0.1);
+}
+
+.price-option.cash {
+    background-color: rgba(121, 215, 190, 0.1);
+}
+
+.price-label {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    margin-bottom: var(--spacing-1);
+}
+
+.price-value {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.price-original {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    text-decoration: line-through;
+    margin-left: var(--spacing-1);
+}
+
+.no-results {
+    text-align: center;
+    padding: var(--spacing-6);
+    color: var(--text-tertiary);
+}
+
+.no-results i {
+    font-size: 48px;
+    margin-bottom: var(--spacing-3);
+}
+
+.welcome-user {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--radius-md);
+    color: white;
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.toast.success {
+    background-color: var(--success);
+}
+
+.toast.error {
+    background-color: var(--error);
+}
+
+.toast i {
+    margin-right: var(--spacing-2);
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Enhanced Result Type Styles */
+/* Medication Results */
+.medication-result {
+    border-left: 4px solid var(--primary);
+}
+
+.pharmacy-logos {
+    display: flex;
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-3);
+}
+
+.pharmacy-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--surface-alt);
+}
+
+/* Doctor Results */
+.doctor-result {
+    border-left: 4px solid var(--success);
+    display: flex;
+    gap: var(--spacing-4);
+}
+
+.doctor-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.doctor-info {
+    flex: 1;
+}
+
+.doctor-credentials {
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+    margin-bottom: var(--spacing-2);
+}
+
+.doctor-ratings {
+    color: var(--warning);
+    margin-top: var(--spacing-2);
+}
+
+/* Procedure Results */
+.procedure-result {
+    border-left: 4px solid var(--info);
+}
+
+.quality-metrics {
+    display: flex;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-3);
+}
+
+.metric {
+    text-align: center;
+    flex: 1;
+}
+
+.metric-value {
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    color: var(--primary);
+}
+
+.metric-label {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+}
+
+/* Detail Page Navigation */
+.detail-link {
+    display: inline-block;
+    margin-top: var(--spacing-3);
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.detail-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.back-to-results {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: var(--spacing-4);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.back-to-results:hover {
+    color: var(--primary-dark);
+}
+
+/* Detail Page Navigation Links */
+.view-details-btn {
+    display: inline-block;
+    margin-top: var(--spacing-3);
+    padding: var(--spacing-2) var(--spacing-4);
+    background-color: var(--primary);
+    color: white;
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: var(--shadow-sm);
+}
+
+.view-details-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.view-details-btn:active {
+    transform: translateY(0);
+}
+
+/* Specific detail buttons for different result types */
+.medication-result .view-details-btn {
+    background-color: var(--primary);
+}
+
+.doctor-result .view-details-btn {
+    background-color: var(--success);
+}
+
+.procedure-result .view-details-btn {
+    background-color: var(--info);
+}
+
+/* Prominent CTA for detail pages */
+.view-detail-cta {
+    position: relative;
+    text-align: center;
+    margin-top: var(--spacing-4);
+}
+
+.view-detail-cta .view-details-btn {
+    font-size: var(--font-size-base);
+    padding: var(--spacing-2) var(--spacing-5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.view-detail-cta .view-details-btn::after {
+    content: '→';
+    font-size: 1.2em;
+    transition: transform var(--transition-fast);
+}
+
+.view-detail-cta .view-details-btn:hover::after {
+    transform: translateX(3px);
+}
+
+/* Quick action links */
+.quick-actions {
+    display: flex;
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-3);
+    margin-bottom: var(--spacing-2);
+    justify-content: center;
+}
+
+.quick-action-link {
+    font-size: var(--font-size-sm);
+    color: var(--primary);
+    text-decoration: none;
+    padding: var(--spacing-1) var(--spacing-2);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+}
+
+.quick-action-link:hover {
+    background-color: rgba(46, 80, 119, 0.1);
+    text-decoration: underline;
+}
+
+.quick-action-link i {
+    margin-right: var(--spacing-1);
+}
+
+/* Result card footer with navigation */
+.result-card-footer {
+    margin-top: var(--spacing-4);
+    padding-top: var(--spacing-3);
+    border-top: 1px solid var(--surface-alt);
+}
+
+/* Analytics Tab Content */
+.analytics-content {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-6) 0;
+}
+
+.analytics-intro {
+    max-width: 800px;
+    text-align: center;
+    padding: var(--spacing-6);
+    background-color: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.analytics-icon {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: var(--spacing-4);
+}
+
+.analytics-intro h2 {
+    margin-bottom: var(--spacing-3);
+    color: var(--text-primary);
+}
+
+.analytics-intro p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-5);
+}
+
+.analytics-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-5);
+}
+
+.analytics-features .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3);
+    background-color: var(--surface-alt);
+    border-radius: var(--radius-md);
+    min-width: 150px;
+}
+
+.analytics-features .feature i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.analytics-cta {
+    padding: var(--spacing-3) var(--spacing-6);
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .price-comparison {
+        flex-direction: column;
+        gap: var(--spacing-2);
+    }
+    
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .doctor-result {
+        flex-direction: column;
+    }
+    
+    .doctor-photo {
+        align-self: center;
+    }
+    
+    .quick-actions {
+        flex-wrap: wrap;
+    }
+}

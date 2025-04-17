@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Healthcare Dashboard</title>
+    <link rel="stylesheet" href="detail-pages.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-sidebar">
+            <div class="user-profile">
+                <img src="https://via.placeholder.com/80" alt="User Profile" class="profile-image">
+                <div class="user-info">
+                    <h3 class="user-name">John Smith</h3>
+                    <p class="user-email">john.smith@example.com</p>
+                </div>
+            </div>
+            
+            <nav class="dashboard-nav">
+                <a href="#overview" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    Dashboard Overview
+                </a>
+                <a href="#saved" class="nav-item">
+                    <i class="fas fa-heart"></i>
+                    Saved Items
+                </a>
+                <a href="#appointments" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    My Appointments
+                </a>
+                <a href="#prescriptions" class="nav-item">
+                    <i class="fas fa-prescription-bottle-alt"></i>
+                    My Prescriptions
+                </a>
+                <a href="#insurance" class="nav-item">
+                    <i class="fas fa-id-card"></i>
+                    Insurance Information
+                </a>
+                <a href="#settings" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    Account Settings
+                </a>
+                <a href="search-results.html" class="nav-item highlight">
+                    <i class="fas fa-search"></i>
+                    Search Healthcare Services
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#help" class="help-link">
+                    <i class="fas fa-question-circle"></i>
+                    Help & Support
+                </a>
+                <a href="#logout" class="logout-link">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+        
+        <div class="dashboard-main">
+            <header class="dashboard-header">
+                <h1>Welcome back, John</h1>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="search-quick">
+                        <input type="text" placeholder="Quick search..." class="quick-search">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <section class="dashboard-section" id="overview">
+                    <div class="section-header">
+                        <h2>Dashboard Overview</h2>
+                        <span class="date-info">Monday, July 10, 2023</span>
+                    </div>
+                    
+                    <div class="dashboard-cards">
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Upcoming Appointment</h3>
+                                <p>Dr. Sarah Johnson</p>
+                                <p class="card-detail">Tomorrow at 10:30 AM</p>
+                                <a href="provider-details.html" class="card-action">View Details</a>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Prescription Refill</h3>
+                                <p>Lisinopril 10mg</p>
+                                <p class="card-detail">2 refills remaining</p>
+                                <a href="medication-details.html" class="card-action">Refill Now</a>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-file-medical"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Recent Test Results</h3>
+                                <p>Annual Blood Work</p>
+                                <p class="card-detail">Available for review</p>
+                                <a href="#" class="card-action">View Results</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="dashboard-section" id="recent-searches">
+                    <div class="section-header">
+                        <h2>Recent Searches</h2>
+                        <a href="search-results.html" class="view-all">View All Searches</a>
+                    </div>
+                    
+                    <div class="recent-searches-list">
+                        <div class="recent-search-item">
+                            <div class="search-info">
+                                <span class="search-query">Primary care doctor near me</span>
+                                <span class="search-date">Yesterday</span>
+                            </div>
+                            <a href="search-results.html" class="search-action">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="recent-search-item">
+                            <div class="search-info">
+                                <span class="search-query">Lisinopril price comparison</span>
+                                <span class="search-date">3 days ago</span>
+                            </div>
+                            <a href="search-results.html" class="search-action">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="recent-search-item">
+                            <div class="search-info">
+                                <span class="search-query">MRI lumbar spine cost</span>
+                                <span class="search-date">Last week</span>
+                            </div>
+                            <a href="search-results.html" class="search-action">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="dashboard-section" id="saved-items">
+                    <div class="section-header">
+                        <h2>Saved Items</h2>
+                        <a href="#saved" class="view-all">View All Saved</a>
+                    </div>
+                    
+                    <div class="saved-items-grid">
+                        <div class="saved-item medication">
+                            <div class="saved-item-header">
+                                <span class="item-category">Medication</span>
+                                <button class="item-favorite active">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="item-title">Lisinopril 10mg</h3>
+                            <p class="item-subtitle">Generic for Prinivil</p>
+                            <div class="item-price">From $4.99</div>
+                            <a href="medication-details.html" class="view-details-btn">View Details</a>
+                        </div>
+                        
+                        <div class="saved-item doctor">
+                            <div class="saved-item-header">
+                                <span class="item-category">Doctor</span>
+                                <button class="item-favorite active">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="item-title">Dr. Sarah Johnson</h3>
+                            <p class="item-subtitle">Family Medicine</p>
+                            <div class="item-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                4.5
+                            </div>
+                            <a href="provider-details.html" class="view-details-btn">View Details</a>
+                        </div>
+                        
+                        <div class="saved-item procedure">
+                            <div class="saved-item-header">
+                                <span class="item-category">Procedure</span>
+                                <button class="item-favorite active">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="item-title">MRI, Lumbar Spine</h3>
+                            <p class="item-subtitle">Without Contrast</p>
+                            <div class="item-price">From $1,400</div>
+                            <a href="procedure-details.html" class="view-details-btn">View Details</a>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="dashboard-section" id="health-reminders">
+                    <div class="section-header">
+                        <h2>Health Reminders</h2>
+                        <button class="add-reminder">+ Add Reminder</button>
+                    </div>
+                    
+                    <div class="reminders-list">
+                        <div class="reminder-item">
+                            <div class="reminder-check">
+                                <input type="checkbox" id="reminder1">
+                                <label for="reminder1"></label>
+                            </div>
+                            <div class="reminder-content">
+                                <h3 class="reminder-title">Take Lisinopril</h3>
+                                <p class="reminder-time">Daily at 8:00 AM</p>
+                            </div>
+                            <div class="reminder-actions">
+                                <button class="reminder-edit">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button>
+                                <button class="reminder-delete">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="reminder-item">
+                            <div class="reminder-check">
+                                <input type="checkbox" id="reminder2">
+                                <label for="reminder2"></label>
+                            </div>
+                            <div class="reminder-content">
+                                <h3 class="reminder-title">Schedule Annual Physical</h3>
+                                <p class="reminder-time">Due this month</p>
+                            </div>
+                            <div class="reminder-actions">
+                                <button class="reminder-edit">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button>
+                                <button class="reminder-delete">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="dashboard-section" id="procedures-results">
+                    <div class="section-header">
+                        <h2>Recommended Procedures</h2>
+                        <a href="search-results.html" class="view-all">View All Procedures</a>
+                    </div>
+                    
+                    <div class="results-grid">
+                        <div class="result-card procedure">
+                            <div class="result-header">
+                                <span class="result-type">Imaging</span>
+                                <button class="save-item">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="result-title">MRI, Lumbar Spine Without Contrast</h3>
+                            <p class="result-facility">Metro Imaging Center</p>
+                            <div class="result-price">$1,400 - $1,800</div>
+                            <div class="result-metrics">
+                                <span><i class="fas fa-star"></i> 4.8</span>
+                                <span><i class="fas fa-clock"></i> 15 min wait</span>
+                            </div>
+                            <a href="procedure-details.html" class="view-details-btn">View Details</a>
+                        </div>
+                        
+                        <div class="result-card procedure">
+                            <div class="result-header">
+                                <span class="result-type">Lab Test</span>
+                                <button class="save-item">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="result-title">Comprehensive Metabolic Panel</h3>
+                            <p class="result-facility">City Laboratory Services</p>
+                            <div class="result-price">$75 - $120</div>
+                            <div class="result-metrics">
+                                <span><i class="fas fa-star"></i> 4.5</span>
+                                <span><i class="fas fa-clock"></i> 10 min wait</span>
+                            </div>
+                            <a href="procedure-details.html" class="view-details-btn">View Details</a>
+                        </div>
+                        
+                        <div class="result-card procedure">
+                            <div class="result-header">
+                                <span class="result-type">Diagnostic</span>
+                                <button class="save-item">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="result-title">Chest X-Ray, Two Views</h3>
+                            <p class="result-facility">University Medical Center</p>
+                            <div class="result-price">$220 - $350</div>
+                            <div class="result-metrics">
+                                <span><i class="fas fa-star"></i> 4.6</span>
+                                <span><i class="fas fa-clock"></i> 25 min wait</span>
+                            </div>
+                            <a href="procedure-details.html" class="view-details-btn">View Details</a>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="dashboard-section" id="doctors-results">
+                    <div class="section-header">
+                        <h2>Your Healthcare Team</h2>
+                        <a href="search-results.html" class="view-all">Find More Providers</a>
+                    </div>
+                    
+                    <div class="results-grid">
+                        <div class="result-card doctor">
+                            <div class="result-header">
+                                <span class="result-type">Primary Care</span>
+                                <button class="save-item">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="result-title">Dr. Sarah Johnson, MD</h3>
+                            <p class="result-facility">Downtown Family Practice</p>
+                            <div class="result-metrics">
+                                <span><i class="fas fa-star"></i> 4.9</span>
+                                <span><i class="fas fa-user-clock"></i> 2 days</span>
+                            </div>
+                            <div class="doctor-insurance">In-network with your plan</div>
+                            <a href="provider-details.html" class="view-details-btn">View Profile</a>
+                        </div>
+                        
+                        <div class="result-card doctor">
+                            <div class="result-header">
+                                <span class="result-type">Cardiology</span>
+                                <button class="save-item">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="result-title">Dr. Michael Chen, MD</h3>
+                            <p class="result-facility">Heart & Vascular Institute</p>
+                            <div class="result-metrics">
+                                <span><i class="fas fa-star"></i> 4.7</span>
+                                <span><i class="fas fa-user-clock"></i> 5 days</span>
+                            </div>
+                            <div class="doctor-insurance">In-network with your plan</div>
+                            <a href="provider-details.html" class="view-details-btn">View Profile</a>
+                        </div>
+                        
+                        <div class="result-card doctor">
+                            <div class="result-header">
+                                <span class="result-type">Dermatology</span>
+                                <button class="save-item">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <h3 class="result-title">Dr. Lisa Rodriguez, MD</h3>
+                            <p class="result-facility">Metro Skin Care Center</p>
+                            <div class="result-metrics">
+                                <span><i class="fas fa-star"></i> 4.8</span>
+                                <span><i class="fas fa-user-clock"></i> 7 days</span>
+                            </div>
+                            <div class="doctor-insurance">In-network with your plan</div>
+                            <a href="provider-details.html" class="view-details-btn">View Profile</a>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="dashboard-section" id="medications-results">
+                    <div class="section-header">
+                        <h2>Your Medications</h2>
+                        <a href="#" class="view-all">Manage Medications</a>
+                    </div>
+                    
+                    <div class="medications-list">
+                        <div class="medication-item">
+                            <div class="medication-icon">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <div class="medication-details">
+                                <h3 class="medication-name">Lisinopril 10mg</h3>
+                                <p class="medication-instructions">1 tablet daily</p>
+                                <div class="medication-meta">
+                                    <span class="refills">2 refills remaining</span>
+                                    <span class="pharmacy">CVS Pharmacy</span>
+                                </div>
+                            </div>
+                            <div class="medication-actions">
+                                <button class="refill-btn">Refill Now</button>
+                                <button class="price-compare-btn">Compare Prices</button>
+                            </div>
+                        </div>
+                        
+                        <div class="medication-item">
+                            <div class="medication-icon">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <div class="medication-details">
+                                <h3 class="medication-name">Atorvastatin 20mg</h3>
+                                <p class="medication-instructions">1 tablet daily at bedtime</p>
+                                <div class="medication-meta">
+                                    <span class="refills">3 refills remaining</span>
+                                    <span class="pharmacy">Walgreens</span>
+                                </div>
+                            </div>
+                            <div class="medication-actions">
+                                <button class="refill-btn">Refill Now</button>
+                                <button class="price-compare-btn">Compare Prices</button>
+                            </div>
+                        </div>
+                        
+                        <div class="medication-item">
+                            <div class="medication-icon">
+                                <i class="fas fa-capsules"></i>
+                            </div>
+                            <div class="medication-details">
+                                <h3 class="medication-name">Metformin 500mg</h3>
+                                <p class="medication-instructions">1 tablet twice daily with meals</p>
+                                <div class="medication-meta">
+                                    <span class="refills">1 refill remaining</span>
+                                    <span class="pharmacy">CVS Pharmacy</span>
+                                </div>
+                            </div>
+                            <div class="medication-actions">
+                                <button class="refill-btn">Refill Now</button>
+                                <button class="price-compare-btn">Compare Prices</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

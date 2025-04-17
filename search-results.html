@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results | mario</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search-results.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>mario</h1>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html#providers">Providers</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#appointments">Appointments</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <span class="welcome-user">Welcome, User!</span>
+                <button class="btn-icon theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="search-header">
+            <div class="container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" value="MRI scan" placeholder="Search for doctors, procedures, or medicine...">
+                    <button class="voice-search" aria-label="Voice search">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <div class="insurance-dropdown">
+                        <select aria-label="Select insurance">
+                            <option value="" selected>Select Insurance</option>
+                            <option value="aetna">Aetna</option>
+                            <option value="bluecross" selected>Blue Cross Blue Shield</option>
+                            <option value="cigna">Cigna</option>
+                            <option value="united">UnitedHealthcare</option>
+                            <option value="kaiser">Kaiser Permanente</option>
+                            <option value="medicare">Medicare</option>
+                            <option value="medicaid">Medicaid</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary">Search</button>
+                </div>
+                
+                <div class="category-tabs">
+                    <div class="category-tab active" data-tab="all">All Results</div>
+                    <div class="category-tab" data-tab="procedures">Procedures</div>
+                    <div class="category-tab" data-tab="doctors">Doctors</div>
+                    <div class="category-tab" data-tab="medicine">Medicine</div>
+                    <div class="category-tab" data-tab="analytics">Analytics</div>
+                </div>
+                
+                <div class="suggestions">
+                    <div class="suggestions-title">Popular searches:</div>
+                    <div class="suggestion-tags">
+                        <span class="suggestion-tag">Brain MRI</span>
+                        <span class="suggestion-tag">Knee MRI</span>
+                        <span class="suggestion-tag">Chest MRI</span>
+                        <span class="suggestion-tag">Radiology Centers</span>
+                        <span class="suggestion-tag">MRI with contrast</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-sort-controls">
+                    <div class="filters">
+                        <h4>Filter by:</h4>
+                        <div class="filter-options">
+                            <div class="filter-group">
+                                <label>Distance</label>
+                                <input type="range" min="1" max="50" value="10" class="slider" id="distance-filter">
+                                <span class="filter-value">10 miles</span>
+                            </div>
+                            <div class="filter-group">
+                                <label>Price</label>
+                                <div class="price-range-inputs">
+                                    <input type="number" placeholder="Min" id="price-min">
+                                    <span>-</span>
+                                    <input type="number" placeholder="Max" id="price-max">
+                                </div>
+                            </div>
+                            <div class="filter-group">
+                                <label>Rating</label>
+                                <select id="rating-filter">
+                                    <option value="">Any Rating</option>
+                                    <option value="4">4+ Stars</option>
+                                    <option value="3">3+ Stars</option>
+                                    <option value="2">2+ Stars</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Availability</label>
+                                <select id="availability-filter">
+                                    <option value="">Any Time</option>
+                                    <option value="today">Today</option>
+                                    <option value="week">This Week</option>
+                                    <option value="weekend">Weekend</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sorting">
+                        <h4>Sort by:</h4>
+                        <select id="sort-options">
+                            <option value="recommended">Recommended</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="distance">Distance</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                    </div>
+                    <div class="view-toggle">
+                        <button class="btn-icon active" id="list-view-btn" aria-label="List view">
+                            <i class="fas fa-list"></i>
+                        </button>
+                        <button class="btn-icon" id="map-view-btn" aria-label="Map view">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="map-view" class="map-container" style="display: none;">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Interactive map showing 23 results for "MRI scan"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="results-section">
+            <div class="container">
+                <div class="tab-content active" id="all-content">
+                    <div class="results-header">
+                        <div class="results-count">23 results for "MRI scan"</div>
+                        <a href="user-dashboard.html" class="dashboard-btn">
+                            <i class="fas fa-columns"></i> My Dashboard
+                        </a>
+                    </div>
+                    
+                    <div class="results-grid" id="results-container">
+                        <!-- Results will be loaded here via JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="procedures-content">
+                    <div class="results-header">
+                        <div class="results-count">15 procedure results for "MRI scan"</div>
+                        <a href="user-dashboard.html" class="dashboard-btn">
+                            <i class="fas fa-columns"></i> My Dashboard
+                        </a>
+                    </div>
+                    <div class="results-grid procedures-grid">
+                        <!-- Procedure-specific results -->
+                        <div class="result-card">
+                            <div class="result-type-tag">Imaging</div>
+                            <h3>MRI, Lumbar Spine Without Contrast</h3>
+                            <div class="result-location">Metro Imaging Center</div>
+                            <div class="result-distance">1.2 miles away</div>
+                            <div class="result-price">$1,400 - $1,800</div>
+                            <div class="result-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.8 (124 reviews)</span>
+                            </div>
+                            <a href="procedure-details.html" class="btn btn-outline">View Details</a>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-type-tag">Imaging</div>
+                            <h3>MRI, Brain Without Contrast</h3>
+                            <div class="result-location">University Medical Center</div>
+                            <div class="result-distance">3.5 miles away</div>
+                            <div class="result-price">$1,600 - $2,100</div>
+                            <div class="result-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0 (98 reviews)</span>
+                            </div>
+                            <a href="procedure-details.html" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="doctors-content">
+                    <div class="results-header">
+                        <div class="results-count">8 doctor results for "MRI scan"</div>
+                        <a href="user-dashboard.html" class="dashboard-btn">
+                            <i class="fas fa-columns"></i> My Dashboard
+                        </a>
+                    </div>
+                    <div class="results-grid doctors-grid">
+                        <!-- Doctor-specific results -->
+                        <div class="result-card">
+                            <div class="result-type-tag">Radiologist</div>
+                            <h3>Dr. Sarah Johnson, MD</h3>
+                            <div class="result-location">Downtown Radiology</div>
+                            <div class="result-distance">2.1 miles away</div>
+                            <div class="result-availability">Available tomorrow</div>
+                            <div class="result-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.5 (128 reviews)</span>
+                            </div>
+                            <a href="provider-details.html" class="btn btn-outline">View Profile</a>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-type-tag">Neurologist</div>
+                            <h3>Dr. Michael Chen, MD</h3>
+                            <div class="result-location">Neuro Specialists</div>
+                            <div class="result-distance">4.2 miles away</div>
+                            <div class="result-availability">Available this week</div>
+                            <div class="result-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0 (86 reviews)</span>
+                            </div>
+                            <a href="provider-details.html" class="btn btn-outline">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="medicine-content">
+                    <div class="results-header">
+                        <div class="results-count">No medicine results for "MRI scan"</div>
+                        <a href="user-dashboard.html" class="dashboard-btn">
+                            <i class="fas fa-columns"></i> My Dashboard
+                        </a>
+                    </div>
+                    <div class="no-results">
+                        <i class="fas fa-prescription-bottle-alt"></i>
+                        <p>No related medications found for this search term.</p>
+                        <p>Try searching for a specific medication name.</p>
+                    </div>
+                    <!-- Example of how a medicine result would appear (hidden by default) -->
+                    <div class="results-grid medicine-grid" style="display: none;">
+                        <div class="result-card">
+                            <div class="result-type-tag">Generic</div>
+                            <h3>Lisinopril 10mg</h3>
+                            <div class="result-location">Multiple pharmacies available</div>
+                            <div class="result-price">From $4.99</div>
+                            <div class="result-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7 (215 reviews)</span>
+                            </div>
+                            <a href="medication-details.html" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="analytics-content">
+                    <div class="results-header">
+                        <div class="results-count">Analytics Dashboard</div>
+                        <a href="user-dashboard.html" class="dashboard-btn">
+                            <i class="fas fa-columns"></i> My Dashboard
+                        </a>
+                    </div>
+                    <div class="analytics-content">
+                        <div class="analytics-intro">
+                            <i class="fas fa-chart-line analytics-icon"></i>
+                            <h2>Your Healthcare Analytics</h2>
+                            <p>Access personalized insights, track spending, and monitor your healthcare journey.</p>
+                            <div class="analytics-features">
+                                <div class="feature">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>Cost Tracking</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-heartbeat"></i>
+                                    <span>Health Trends</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-pills"></i>
+                                    <span>Medication Adherence</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Appointment History</span>
+                                </div>
+                            </div>
+                            <a href="user-dashboard.html" class="btn btn-primary analytics-cta">Go to Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>mario</h3>
+                    <p>Making healthcare shopping transparent, affordable, and accessible for everyone.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Find Providers</a></li>
+                        <li><a href="#">Compare Prices</a></li>
+                        <li><a href="#">Book Appointments</a></li>
+                        <li><a href="#">Insurance Verification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">For Employers</a></li>
+                        <li><a href="#">For Providers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 mario. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="search-results.js"></script>
+</body>
+</html>

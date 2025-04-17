@@ -1,0 +1,425 @@
+/* Detail Pages Styles */
+:root {
+    /* Using the same variables as the search page for consistency */
+    --primary: #2E5077;
+    --primary-light: #4D7CAA;
+    --primary-dark: #1E3450;
+    --secondary: #4DA1A9;
+    --success: #79D7BE;
+    --warning: #F9BC60;
+    --error: #E16162;
+    --info: #7D9DC5;
+    --surface: #FFFFFF;
+    --surface-alt: #F3F6F9;
+    --text-primary: #2F2F2F;
+    --text-secondary: #575757;
+    --text-tertiary: #8E8E8E;
+    
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-5: 24px;
+    --spacing-6: 32px;
+    
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+    
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    
+    --transition-fast: 0.15s ease;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    background-color: var(--surface-alt);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-4);
+}
+
+/* Common Detail Page Layout */
+.detail-header {
+    background-color: var(--surface);
+    padding: var(--spacing-5) 0;
+    border-bottom: 1px solid var(--surface-alt);
+    margin-bottom: var(--spacing-5);
+}
+
+.detail-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-3);
+}
+
+.detail-subtitle {
+    color: var(--text-secondary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-4);
+}
+
+.detail-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-5);
+}
+
+.detail-main {
+    background-color: var(--surface);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-5);
+    box-shadow: var(--shadow-md);
+}
+
+.detail-sidebar {
+    background-color: var(--surface);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-5);
+    box-shadow: var(--shadow-md);
+    align-self: start;
+    position: sticky;
+    top: var(--spacing-5);
+}
+
+.section-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin-bottom: var(--spacing-4);
+    padding-bottom: var(--spacing-2);
+    border-bottom: 1px solid var(--surface-alt);
+}
+
+/* Medication Details */
+.medication-info {
+    display: flex;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-5);
+}
+
+.medication-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    background-color: var(--surface-alt);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-3);
+}
+
+.dosage-info {
+    margin-bottom: var(--spacing-4);
+}
+
+.pharmacy-comparison {
+    margin-top: var(--spacing-5);
+}
+
+.pharmacy-option {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-3) 0;
+    border-bottom: 1px solid var(--surface-alt);
+}
+
+.pharmacy-details {
+    flex: 1;
+}
+
+.pharmacy-name {
+    font-weight: 600;
+}
+
+.pharmacy-address {
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+}
+
+.pharmacy-price {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.fulfillment-options {
+    display: flex;
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-2);
+}
+
+.fulfillment-option {
+    font-size: var(--font-size-xs);
+    background-color: var(--surface-alt);
+    color: var(--text-secondary);
+    padding: var(--spacing-1) var(--spacing-2);
+    border-radius: var(--radius-full);
+}
+
+/* Provider Details */
+.provider-header {
+    display: flex;
+    gap: var(--spacing-5);
+    margin-bottom: var(--spacing-5);
+}
+
+.provider-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.provider-credentials {
+    margin-bottom: var(--spacing-2);
+}
+
+.education-experience {
+    margin-bottom: var(--spacing-5);
+}
+
+.education-item, .experience-item {
+    margin-bottom: var(--spacing-3);
+}
+
+.education-degree, .experience-position {
+    font-weight: 600;
+}
+
+.education-school, .experience-location {
+    color: var(--text-secondary);
+}
+
+.education-year, .experience-duration {
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+}
+
+.appointment-calendar {
+    margin-top: var(--spacing-5);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-3);
+}
+
+.timeslots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-3);
+}
+
+.timeslot {
+    padding: var(--spacing-2);
+    text-align: center;
+    border: 1px solid var(--surface-alt);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.timeslot:hover {
+    background-color: var(--primary-light);
+    color: white;
+    border-color: var(--primary-light);
+}
+
+.timeslot.unavailable {
+    color: var(--text-tertiary);
+    background-color: var(--surface-alt);
+    cursor: not-allowed;
+}
+
+.visit-types {
+    margin-top: var(--spacing-5);
+}
+
+.visit-type {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-3) 0;
+    border-bottom: 1px solid var(--surface-alt);
+}
+
+.visit-name {
+    font-weight: 500;
+}
+
+.visit-price {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Procedure Details */
+.procedure-description {
+    margin-bottom: var(--spacing-5);
+}
+
+.preparation-steps {
+    margin-bottom: var(--spacing-5);
+}
+
+.preparation-step {
+    margin-bottom: var(--spacing-3);
+    padding-left: var(--spacing-4);
+    position: relative;
+}
+
+.preparation-step:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.facility-comparison {
+    margin-top: var(--spacing-5);
+}
+
+.facility {
+    border: 1px solid var(--surface-alt);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.facility:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.facility-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-3);
+}
+
+.facility-name {
+    font-weight: 600;
+}
+
+.facility-distance {
+    color: var(--text-tertiary);
+    font-size: var(--font-size-sm);
+}
+
+.cost-breakdown {
+    margin-top: var(--spacing-4);
+}
+
+.cost-item {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-2) 0;
+    border-bottom: 1px dashed var(--surface-alt);
+}
+
+.cost-label {
+    color: var(--text-secondary);
+}
+
+.cost-value {
+    font-weight: 500;
+}
+
+.total-cost {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-3) 0;
+    margin-top: var(--spacing-3);
+    border-top: 2px solid var(--surface-alt);
+    font-weight: 700;
+}
+
+.quality-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-5);
+}
+
+.quality-metric {
+    text-align: center;
+    background-color: var(--surface-alt);
+    padding: var(--spacing-3);
+    border-radius: var(--radius-md);
+}
+
+.metric-value {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.metric-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+}
+
+/* Dashboard Button */
+.dashboard-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.dashboard-btn i {
+    margin-right: 8px;
+}
+
+.dashboard-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Results Header */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .detail-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .provider-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .quality-metrics {
+        grid-template-columns: 1fr;
+    }
+}
