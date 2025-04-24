@@ -149,84 +149,119 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
     
+    // Sample data arrays
+    const procedureResults = [
+        {
+            title: 'Brain MRI',
+            provider: 'City Imaging Center',
+            distance: 2.4,
+            rating: 4.5,
+            reviews: 208,
+            insurancePrice: 350,
+            cashPrice: 1200,
+            savings: 71,
+            availability: 'Today',
+            type: 'Imaging',
+            waitTime: '30 min'
+        },
+        {
+            title: 'MRI Scan Without Contrast',
+            provider: 'Westside Radiology',
+            distance: 1.8,
+            rating: 4.2,
+            reviews: 156,
+            insurancePrice: 400,
+            cashPrice: 950,
+            savings: 58,
+            availability: 'Tomorrow',
+            type: 'Imaging',
+            waitTime: '45 min'
+        },
+        {
+            title: 'Full Body MRI',
+            provider: 'Premium Diagnostic Center',
+            distance: 4.2,
+            rating: 4.7,
+            reviews: 189,
+            insurancePrice: 800,
+            cashPrice: 2500,
+            savings: 68,
+            availability: 'Next Week',
+            type: 'Imaging',
+            waitTime: '20 min'
+        }
+    ];
+    
+    const doctorResults = [
+        {
+            name: 'Dr. Sarah Johnson',
+            specialty: 'Radiologist',
+            facility: 'Downtown Radiology',
+            distance: 2.1,
+            rating: 4.9,
+            reviews: 312,
+            nextAvailable: 'Tomorrow',
+            education: 'Harvard Medical School',
+            experience: '15 years',
+            insurance: ['Aetna', 'Blue Cross', 'United']
+        },
+        {
+            name: 'Dr. Michael Chen',
+            specialty: 'Neurologist',
+            facility: 'Neuro Specialists',
+            distance: 4.2,
+            rating: 4.0,
+            reviews: 86,
+            nextAvailable: 'This Week',
+            education: 'Stanford Medical School',
+            experience: '12 years',
+            insurance: ['Cigna', 'Blue Cross']
+        }
+    ];
+    
+    const medicationResults = [
+        {
+            name: 'Contrast Media Solution',
+            type: 'Generic',
+            form: 'Injectable Solution',
+            provider: 'Multiple pharmacies',
+            lowestPrice: 89.99,
+            savings: 45,
+            insurance: ['Most insurances accepted'],
+            alternatives: 2
+        }
+    ];
+    
     // Generate sample search results
     function generateSampleResults(container, sortBy = 'recommended') {
-        // Sample result data
-        const results = [
-            {
-                title: 'Brain MRI',
-                provider: 'City Imaging Center',
-                distance: 2.4,
-                rating: 4.5,
-                reviews: 208,
-                insurancePrice: 350,
-                cashPrice: 1200,
-                savings: 71
-            },
-            {
-                title: 'MRI Scan Without Contrast',
-                provider: 'Westside Radiology',
-                distance: 1.8,
-                rating: 4.2,
-                reviews: 156,
-                insurancePrice: 400,
-                cashPrice: 950,
-                savings: 58
-            },
-            {
-                title: 'Knee MRI',
-                provider: 'Advanced Medical Imaging',
-                distance: 3.5,
-                rating: 4.8,
-                reviews: 302,
-                insurancePrice: 320,
-                cashPrice: 1100,
-                savings: 71
-            },
-            {
-                title: 'Full Body MRI',
-                provider: 'Premium Diagnostic Center',
-                distance: 4.2,
-                rating: 4.7,
-                reviews: 189,
-                insurancePrice: 800,
-                cashPrice: 2500,
-                savings: 68
-            },
-            {
-                title: 'MRI with Contrast',
-                provider: 'University Hospital',
-                distance: 5.6,
-                rating: 4.9,
-                reviews: 412,
-                insurancePrice: 600,
-                cashPrice: 1800,
-                savings: 67
-            },
-            {
-                title: 'Chest MRI',
-                provider: 'Downtown Imaging',
-                distance: 0.8,
-                rating: 3.9,
-                reviews: 97,
-                insurancePrice: 450,
-                cashPrice: 1300,
-                savings: 65
-            }
-        ];
+        const currentTab = document.querySelector('.category-tab.active').getAttribute('data-tab');
+        let results = [];
         
-        // Sort results based on selected option
+        switch(currentTab) {
+            case 'procedures':
+                results = procedureResults;
+                break;
+            case 'doctors':
+                results = doctorResults;
+                break;
+            case 'medicine':
+                results = medicationResults;
+                break;
+            case 'all':
+                results = [...procedureResults, ...doctorResults, ...medicationResults];
+                break;
+        }
+    
+        // Apply sorting
         if (sortBy === 'price-low') {
-            results.sort((a, b) => a.insurancePrice - b.insurancePrice);
-        } else if (sortBy === 'price-high') {
-            results.sort((a, b) => b.insurancePrice - a.insurancePrice);
+            results.sort((a, b) => (a.insurancePrice || a.lowestPrice) - (b.insurancePrice || b.lowestPrice));
         } else if (sortBy === 'distance') {
             results.sort((a, b) => a.distance - b.distance);
         } else if (sortBy === 'rating') {
             results.sort((a, b) => b.rating - a.rating);
         }
-        
-        // Apply filters
+    
+        // Apply filters and render results
         const distanceValue = parseInt(document.getElementById('distance-filter').value);
         const minPrice = parseInt(document.getElementById('price-min').value) || 0;
         const maxPrice = parseInt(document.getElementById('price-max').value) || 10000;
@@ -235,59 +270,111 @@ document.addEventListener('DOMContentLoaded', function() {
         const filteredResults = results.filter(result => {
             return (
                 result.distance <= distanceValue &&
-                result.insurancePrice >= minPrice &&
-                result.insurancePrice <= maxPrice &&
+                (result.insurancePrice || result.lowestPrice) >= minPrice &&
+                (result.insurancePrice || result.lowestPrice) <= maxPrice &&
                 result.rating >= minRating
             );
         });
-        
-        // Add results to container
+    
+        // Clear container and add results
+        container.innerHTML = '';
         filteredResults.forEach(result => {
-            const resultCard = document.createElement('div');
-            resultCard.className = 'result-card';
-            resultCard.innerHTML = `
-                <span class="savings-badge">Save ${result.savings}%</span>
-                <div class="card-header">
-                    <h3>${result.title}</h3>
-                    <span class="distance">${result.distance} miles</span>
-                </div>
-                <div class="provider">${result.provider}</div>
-                <div class="rating">
-                    ${getStarRating(result.rating)}
-                    <span>${result.rating} (${result.reviews})</span>
-                </div>
-                <div class="price-comparison">
-                    <div class="price-option insurance">
-                        <div class="price-label">Insurance</div>
-                        <div class="price-value">$${result.insurancePrice}</div>
-                    </div>
-                    <div class="price-option cash">
-                        <div class="price-label">Cash Pay</div>
-                        <div class="price-value">$${result.cashPrice - 100} <span class="price-original">$${result.cashPrice}</span></div>
-                    </div>
-                </div>
-                <button class="btn btn-primary full-width" style="margin-top: var(--spacing-3);">Book Appointment</button>
-            `;
-            container.appendChild(resultCard);
+            const card = createResultCard(result, currentTab);
+            container.appendChild(card);
         });
+    
+        updateResultsCount(filteredResults.length);
+    }
+    
+    // Helper function to create appropriate result card based on type
+    function createResultCard(result, type) {
+        const card = document.createElement('div');
+        card.className = 'result-card';
         
-        // Update results count
-        const resultsCount = document.querySelector('.results-count');
-        if (resultsCount) {
-            resultsCount.textContent = `${filteredResults.length} results for "MRI scan"`;
+        // Different card layouts based on type
+        switch(type) {
+            case 'procedures':
+                card.innerHTML = createProcedureCard(result);
+                break;
+            case 'doctors':
+                card.innerHTML = createDoctorCard(result);
+                break;
+            case 'medicine':
+                card.innerHTML = createMedicationCard(result);
+                break;
         }
         
-        // If no results, show message
-        if (filteredResults.length === 0) {
-            const noResults = document.createElement('div');
-            noResults.className = 'no-results';
-            noResults.innerHTML = `
-                <i class="fas fa-search"></i>
-                <p>No results found for your search criteria.</p>
-                <p>Try adjusting your filters or search terms.</p>
-            `;
-            container.appendChild(noResults);
-        }
+        return card;
+    }
+    
+    // Helper function to create procedure card
+    function createProcedureCard(result) {
+        return `
+            <span class="savings-badge">Save ${result.savings}%</span>
+            <div class="card-header">
+                <h3>${result.title}</h3>
+                <span class="distance">${result.distance} miles</span>
+            </div>
+            <div class="provider">${result.provider}</div>
+            <div class="rating">
+                ${getStarRating(result.rating)}
+                <span>${result.rating} (${result.reviews})</span>
+            </div>
+            <div class="price-comparison">
+                <div class="price-option insurance">
+                    <div class="price-label">Insurance</div>
+                    <div class="price-value">$${result.insurancePrice}</div>
+                </div>
+                <div class="price-option cash">
+                    <div class="price-label">Cash Pay</div>
+                    <div class="price-value">$${result.cashPrice - 100} <span class="price-original">$${result.cashPrice}</span></div>
+                </div>
+            </div>
+            <button class="btn btn-primary full-width" style="margin-top: var(--spacing-3);">Book Appointment</button>
+        `;
+    }
+    
+    // Helper function to create doctor card
+    function createDoctorCard(result) {
+        return `
+            <div class="card-header">
+                <h3>${result.name}</h3>
+                <span class="distance">${result.distance} miles</span>
+            </div>
+            <div class="specialty">${result.specialty}</div>
+            <div class="facility">${result.facility}</div>
+            <div class="rating">
+                ${getStarRating(result.rating)}
+                <span>${result.rating} (${result.reviews})</span>
+            </div>
+            <div class="availability">Next available: ${result.nextAvailable}</div>
+            <div class="education">Education: ${result.education}</div>
+            <div class="experience">Experience: ${result.experience}</div>
+            <div class="insurance">Insurance: ${result.insurance.join(', ')}</div>
+            <button class="btn btn-primary full-width" style="margin-top: var(--spacing-3);">Book Appointment</button>
+        `;
+    }
+    
+    // Helper function to create medication card
+    function createMedicationCard(result) {
+        return `
+            <div class="card-header">
+                <h3>${result.name}</h3>
+                <span class="type">${result.type}</span>
+            </div>
+            <div class="form">${result.form}</div>
+            <div class="provider">${result.provider}</div>
+            <div class="price-comparison">
+                <div class="price-option">
+                    <div class="price-label">Lowest Price</div>
+                    <div class="price-value">$${result.lowestPrice}</div>
+                </div>
+            </div>
+            <div class="savings">Savings: ${result.savings}%</div>
+            <div class="insurance">Insurance: ${result.insurance.join(', ')}</div>
+            <div class="alternatives">Alternatives: ${result.alternatives}</div>
+            <button class="btn btn-primary full-width" style="margin-top: var(--spacing-3);">Order Now</button>
+        `;
     }
     
     // Helper function to generate star ratings
@@ -310,6 +397,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         return stars;
+    }
+    
+    // Update results count
+    function updateResultsCount(count) {
+        const resultsCount = document.querySelector('.results-count');
+        if (resultsCount) {
+            resultsCount.textContent = `${count} results found`;
+        }
     }
     
     // Generate initial results
