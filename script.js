@@ -286,8 +286,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add insurance dropdown to search bar
     const searchBars = document.querySelectorAll('.search-bar');
     searchBars.forEach(searchBar => {
-        // Skip if it already has a dropdown
-        if (searchBar.querySelector('.insurance-dropdown')) return;
+        // Skip if it already has a dropdown or if we're on the landing page
+        if (searchBar.querySelector('.insurance-dropdown') || window.location.pathname.includes('index.html')) return;
         
         // Create dropdown
         const dropdown = document.createElement('div');
@@ -601,4 +601,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Call after initPage to override setupModalNavigation
     enhanceModalNavigation();
+    
+    // Modify the login form handling
+    const loginForm = document.querySelector('#login-content form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            
+            // Redirect directly to search results
+            setTimeout(() => {
+                window.location.href = 'search-results.html';
+            }, 1000);
+        });
+    }
 });
