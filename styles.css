@@ -1211,3 +1211,9 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* Fix for remove all button in filter sidebar */
+.filters .view-all {
+    background: transparent;
+    box-shadow: none;
+}
