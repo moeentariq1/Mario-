@@ -1,8 +1,10 @@
 /* Search Results Page Styles */
 .search-header {
     background-color: var(--surface);
-    padding: var(--spacing-4) 0;
+    padding: var(--spacing-6) 0;
     box-shadow: var(--shadow-sm);
+    margin-top: var(--spacing-6); /* Reduced from spacing-8 */
+    margin-bottom: var(--spacing-6); 
 }
 
 .category-tabs {
@@ -115,6 +117,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--spacing-3);
+    margin-top: 0; /* Remove top margin */
 }
 
 .results-count {
@@ -524,7 +527,185 @@
     font-weight: 600;
 }
 
-/* Responsive adjustments */
+/* Remove box around clear all button */
+.btn-clear-filters {
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    padding: 0;
+    transition: color var(--transition-fast);
+}
+
+.btn-clear-filters:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Results layout - make filter sidebar more compact */
+.results-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Reduced from default wider size */
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-10); /* Significantly increased to move filter box downwards */
+}
+
+/* Filter sidebar styling improvements */
+.filters-sidebar {
+    background-color: var(--surface);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-3);
+    box-shadow: var(--shadow-sm);
+    height: fit-content;
+    position: sticky;
+    top: var(--spacing-4);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--spacing-3);
+    margin-bottom: var(--spacing-3);
+    border-bottom: 1px solid var(--surface-alt);
+}
+
+.filters-header h3 {
+    font-size: var(--font-size-lg);
+    margin: 0;
+}
+
+.filters-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.filter-group {
+    margin-bottom: var(--spacing-2);
+}
+
+.filter-group h4 {
+    font-size: var(--font-size-sm);
+    margin-top: 0;
+    margin-bottom: var(--spacing-2);
+    color: var(--text-secondary);
+}
+
+/* Add split layout for results and insurance info */
+.results-layout-split {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-6); /* Increased spacing between results and insurance card */
+}
+
+/* Without Insurance section styling */
+.without-insurance-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+/* Insurance section headers and styling - enhanced visibility */
+.insurance-section-header {
+    font-size: var(--font-size-xl); /* Increased from var(--font-size-lg) */
+    font-weight: 700; /* Increased from 600 for more prominence */
+    margin-bottom: var(--spacing-4);
+    color: var(--primary); /* Changed to primary color for emphasis */
+    position: relative;
+    padding-left: var(--spacing-4);
+    display: block; /* Ensure visibility */
+    background-color: rgba(46, 80, 119, 0.05); /* Light background for emphasis */
+    padding-top: var(--spacing-2);
+    padding-bottom: var(--spacing-2);
+    border-radius: var(--radius-md);
+}
+
+.insurance-section-header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px; /* Increased from 4px */
+    height: 24px; /* Increased from 20px */
+    background-color: var(--primary);
+    border-radius: var(--radius-sm);
+}
+
+/* Make With Insurance card distinct - enhanced styling */
+.insurance-info-section {
+    background: linear-gradient(to bottom right, var(--surface), rgba(77, 161, 169, 0.05));
+    border-radius: var(--radius-lg); /* Slightly larger radius */
+    padding: var(--spacing-5) var(--spacing-4); /* More padding at top/bottom */
+    box-shadow: var(--shadow-md), 0 0 0 1px rgba(77, 161, 169, 0.2);
+    height: fit-content;
+    position: sticky;
+    top: var(--spacing-4);
+    border-left: none; /* Remove left border */
+    overflow: hidden; /* For the accent strip */
+}
+
+/* Add decorative accent strip at top */
+.insurance-info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--info), var(--primary));
+}
+
+.insurance-info-section h3 {
+    margin-bottom: var(--spacing-4); /* Increased bottom margin */
+    font-size: var(--font-size-xl); /* Larger font size */
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-weight: 600; /* Bolder font */
+}
+
+.insurance-info-section h3::before {
+    content: '\f0e0';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: var(--font-size-lg); /* Larger icon */
+    width: 36px; /* Larger circle */
+    height: 36px; /* Larger circle */
+    background: linear-gradient(to bottom right, rgba(77, 161, 169, 0.2), rgba(77, 161, 169, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--info); /* Changed icon color */
+}
+
+.insurance-message {
+    background-color: rgba(255, 255, 255, 0.7); /* Slightly translucent background */
+    border-radius: var(--radius-md);
+    padding: var(--spacing-3);
+    border: 1px solid rgba(77, 161, 169, 0.15);
+}
+
+/* Responsive adjustments for new layout */
+@media (max-width: 992px) {
+    .results-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters-sidebar {
+        position: static;
+        margin-bottom: var(--spacing-4);
+        max-height: none;
+    }
+}
+
 @media (max-width: 768px) {
     .price-comparison {
         flex-direction: column;
@@ -545,5 +726,69 @@
     
     .quick-actions {
         flex-wrap: wrap;
+    }
+}
+
+/* Medicine Filter Dropdowns */
+.medicine-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-3);
+    margin: var(--spacing-4) 0;
+    padding: var(--spacing-3);
+    background: rgba(77, 161, 169, 0.05);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(77, 161, 169, 0.1);
+}
+
+.medicine-filter-item {
+    flex: 1;
+    min-width: 180px;
+}
+
+.medicine-filter-item label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-1);
+}
+
+.medicine-filter-item select {
+    width: 100%;
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--surface-alt);
+    background-color: var(--surface);
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%232E5077' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 12px) center;
+    padding-right: 32px;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.medicine-filter-item select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(46, 80, 119, 0.1);
+    outline: none;
+}
+
+.medicine-filter-item select:hover {
+    border-color: var(--primary-light);
+}
+
+/* Responsive adjustments for medicine filters */
+@media (max-width: 768px) {
+    .medicine-filters {
+        flex-direction: column;
+        gap: var(--spacing-2);
+    }
+    
+    .medicine-filter-item {
+        width: 100%;
     }
 }
