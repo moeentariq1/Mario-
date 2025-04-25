@@ -9,132 +9,738 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Main site header with navigation -->
+    <header class="page-header">
+        <div class="container header-container">
+            <div class="logo">mario</div>
+            <nav class="main-nav">
+                <a href="#prescription-savings" class="nav-item">Prescription Savings</a>
+                <a href="provider-details.html" class="nav-item active">Find a Provider</a>
+                <a href="#telehealth" class="nav-item">Telehealth</a>
+                <a href="#health-services" class="nav-item">Health Services</a>
+                <a href="#plus-membership" class="nav-item">Plus Membership</a>
+            </nav>
+            <div class="user-actions">
+                <span class="user-greeting">Welcome, User!</span>
+                <div class="user-profile">
+                    <i class="fas fa-user"></i>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
     <div class="container">
         <a href="search-results.html" class="back-to-results">
             <i class="fas fa-arrow-left"></i> Back to search results
         </a>
         
-        <div class="detail-header">
-            <div class="provider-header">
-                <img src="https://via.placeholder.com/150" alt="Dr. Sarah Johnson" class="provider-photo">
-                <div>
-                    <h1 class="detail-title">Dr. Sarah Johnson, MD</h1>
-                    <div class="provider-credentials">Family Medicine • Board Certified</div>
-                    <div class="detail-subtitle">
-                        <i class="fas fa-star" style="color: var(--warning);"></i>
-                        <i class="fas fa-star" style="color: var(--warning);"></i>
-                        <i class="fas fa-star" style="color: var(--warning);"></i>
-                        <i class="fas fa-star" style="color: var(--warning);"></i>
-                        <i class="fas fa-star-half-alt" style="color: var(--warning);"></i>
-                        4.5 (128 reviews)
-                    </div>
-                </div>
-            </div>
+        <!-- Provider Selector Tabs -->
+        <div class="provider-selector">
+            <button class="provider-tab" data-provider="johnson">
+                <i class="fas fa-user-md"></i> Dr. Sarah Johnson, MD
+            </button>
+            <button class="provider-tab active" data-provider="evergreen">
+                <i class="fas fa-hospital"></i> Evergreen Family Health Network
+            </button>
         </div>
         
-        <div class="detail-content">
-            <div class="detail-main">
-                <div class="section-title">Education & Experience</div>
-                <div class="education-experience">
-                    <div class="education-item">
-                        <div class="education-degree">Doctor of Medicine (MD)</div>
-                        <div class="education-school">University of California, San Francisco</div>
-                        <div class="education-year">2010-2014</div>
+        <!-- Evergreen Family Health Network Provider Details -->
+        <div class="provider-section active" id="evergreen-section">
+            <div class="detail-header">
+                <div class="provider-header">
+                    <div class="profile-icon-wrapper">
+                        <i class="fas fa-hospital-alt fa-3x" style="color: white;"></i>
                     </div>
-                    
-                    <div class="education-item">
-                        <div class="education-degree">Residency, Family Medicine</div>
-                        <div class="education-school">Stanford Medical Center</div>
-                        <div class="education-year">2014-2017</div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-position">Family Physician</div>
-                        <div class="experience-location">Bay Area Health Partners</div>
-                        <div class="experience-duration">2017-Present</div>
+                    <div>
+                        <h1 class="detail-title">Evergreen Family Health Network</h1>
+                        <div class="provider-credentials">Multi-Specialty Provider Group • In-Network</div>
+                        <div class="detail-subtitle">
+                            <i class="fas fa-star" style="color: var(--warning);"></i>
+                            <i class="fas fa-star" style="color: var(--warning);"></i>
+                            <i class="fas fa-star" style="color: var(--warning);"></i>
+                            <i class="fas fa-star" style="color: var(--warning);"></i>
+                            <i class="fas fa-star-half-alt" style="color: var(--warning);"></i>
+                            4.6 (95 reviews)
+                        </div>
+                        <div class="provider-contact-info">
+                            <div><i class="fas fa-phone-alt"></i> (888) 555-2334</div>
+                            <div><i class="fas fa-envelope"></i> contact@evergreenhealth.com</div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="section-title">Patient Reviews</div>
-                <div class="patient-reviews">
-                    <div class="review-item">
-                        <div class="review-rating">
-                            <i class="fas fa-star" style="color: var(--warning);"></i>
-                            <i class="fas fa-star" style="color: var(--warning);"></i>
-                            <i class="fas fa-star" style="color: var(--warning);"></i>
-                            <i class="fas fa-star" style="color: var(--warning);"></i>
-                            <i class="fas fa-star" style="color: var(--warning);"></i>
+                <div class="quick-action-buttons">
+                    <a href="#book-appointment" class="btn btn-primary">
+                        <i class="fas fa-calendar-plus"></i> Book Appointment
+                    </a>
+                    <button class="btn btn-outline save-provider">
+                        <i class="far fa-heart"></i> Save Provider
+                    </button>
+                </div>
+            </div>
+            
+            <div class="detail-content">
+                <div class="detail-main">
+                    <div class="provider-address-section">
+                        <div class="section-title">Location & Hours</div>
+                        <div class="location-hours-container">
+                            <div class="provider-location">
+                                <div class="address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <strong>Evergreen Family Health Network</strong><br>
+                                        2457 Beacon Ave<br>
+                                        Sacramento, CA 95833
+                                    </div>
+                                </div>
+                                <div class="map-container">
+                                    <!-- Embedded Map -->
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.24288075297!2d-121.58334602725836!3d38.56263316584491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA!5e0!3m2!1sen!2sus!4v1678751626007!5m2!1sen!2sus" 
+                                            width="100%" height="250" style="border:0; border-radius: var(--radius-md);" 
+                                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <a href="https://maps.google.com/?q=2457+Beacon+Ave,+Sacramento,+CA+95833" target="_blank" class="directions-link">
+                                        <i class="fas fa-directions"></i> Get Directions
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="business-hours">
+                                <h3><i class="far fa-clock"></i> Business Hours</h3>
+                                <div class="hours-grid">
+                                    <div>Monday - Friday</div>
+                                    <div>8:00 AM - 6:00 PM</div>
+                                    <div>Saturday</div>
+                                    <div>9:00 AM - 1:00 PM</div>
+                                    <div>Sunday</div>
+                                    <div>Closed</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="review-text">
-                            "Dr. Johnson is incredibly thorough and takes the time to listen. She explained everything clearly and made sure I understood my treatment options."
-                        </div>
-                        <div class="review-author">- Michael T., 2 months ago</div>
                     </div>
                     
-                    <div class="review-item">
-                        <div class="review-rating">
-                            <i class="fas fa-star" style="color: var(--warning);"></i>
-                            <i class="fas fa-star" style="color: var(--warning);"></i>
-                            <i class="fas fa-star" style="color: var(--warning);"></i>
-                            <i class="fas fa-star" style="color: var(--warning);"></i>
-                            <i class="far fa-star" style="color: var(--warning);"></i>
+                    <div class="section-title">About Evergreen Family Health Network</div>
+                    <div class="provider-bio">
+                        <p>Evergreen Family Health Network is a large, in-network multi-specialty provider group offering diagnostic imaging, lab testing, and outpatient services. Known for its transparent pricing and high patient satisfaction ratings.</p>
+                    </div>
+                    
+                    <div class="section-title">Insurance Coverage Details</div>
+                    <div class="insurance-coverage-details">
+                        <!-- Existing insurance tabs and content -->
+                    </div>
+                    
+                    <div class="section-title">Quality Metrics</div>
+                    <div class="quality-metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">96%</div>
+                            <div class="metric-label">Patient Satisfaction</div>
                         </div>
-                        <div class="review-text">
-                            "Great bedside manner and very knowledgeable. The office wait time was a bit long but the quality of care made up for it."
+                        <div class="metric-card">
+                            <div class="metric-value">20 min</div>
+                            <div class="metric-label">Avg. Wait Time</div>
                         </div>
-                        <div class="review-author">- Rebecca L., 1 month ago</div>
+                        <div class="metric-card">
+                            <div class="metric-value">3+</div>
+                            <div class="metric-label">Languages Spoken</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">2500+</div>
+                            <div class="metric-label">Patients Monthly</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">Cost & Services</div>
+                    <div class="cost-services-section">
+                        <div class="cost-summary">
+                            <div class="total-cost-header">Estimated Knee MRI Cost</div>
+                            <div class="total-cost-value">$790</div>
+                            <div class="cost-note">*Final cost may vary based on plan details and in-network coverage</div>
+                        </div>
+                        
+                        <div class="services-breakdown">
+                            <h3>Itemized Services</h3>
+                            <div class="service-item">
+                                <div class="service-name">Facility Fee</div>
+                                <div class="service-cost">$500</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-name">Radiologist Fee</div>
+                                <div class="service-cost">$190</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-name">Imaging Technician Fee</div>
+                                <div class="service-cost">$100</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">Patient Reviews</div>
+                    <div class="patient-reviews">
+                        <div class="review-summary">
+                            <div class="average-rating">4.6</div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="review-count">Based on 95 reviews</div>
+                        </div>
+                        
+                        <div class="review-item">
+                            <div class="review-rating">
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                            </div>
+                            <div class="review-text">
+                                "Clean facility and quick check-in."
+                            </div>
+                            <div class="review-author">- Anna M., 1 month ago</div>
+                        </div>
+                        
+                        <div class="review-item">
+                            <div class="review-rating">
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                            </div>
+                            <div class="review-text">
+                                "Pricing exactly as shown — no surprises."
+                            </div>
+                            <div class="review-author">- David L., 2 weeks ago</div>
+                        </div>
+                        
+                        <a href="#" class="view-all-reviews">View all 95 reviews</a>
+                    </div>
+                </div>
+                
+                <div class="detail-sidebar">
+                    <div id="book-appointment" class="section-title">Book Appointment</div>
+                    <div class="appointment-booking-section special-booking">
+                        <div class="booking-placeholder">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h3>Online scheduling not available</h3>
+                            <p>📞 Please call to book an appointment.</p>
+                            <p>📘 Coming soon: Instant booking via portal.</p>
+                            <a href="tel:8885552334" class="btn btn-primary full-width">
+                                <i class="fas fa-phone"></i> Call (888) 555-2334
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">SmartSelect Rewards</div>
+                    <div class="rewards-section">
+                        <div class="reward-badge special-reward">
+                            <i class="fas fa-gift"></i>
+                            <div class="reward-info">
+                                <h3>$50 Gift Card</h3>
+                                <p>Get a $50 gift card when choosing this provider through our SmartSelect program.</p>
+                            </div>
+                        </div>
+                        <div class="learn-more-rewards">
+                            <a href="rewards-program.html" class="btn btn-outline full-width">Learn More About Rewards</a>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">Insurance Accepted</div>
+                    <div class="insurance-list">
+                        <p><i class="fas fa-check-circle"></i> Aetna</p>
+                        <p><i class="fas fa-check-circle"></i> Blue Cross Blue Shield</p>
+                        <p><i class="fas fa-check-circle"></i> Cigna</p>
+                        <p><i class="fas fa-check-circle"></i> UnitedHealthcare</p>
+                        <p><i class="fas fa-check-circle"></i> Medicare</p>
+                        <p>And 15+ more plans accepted</p>
+                        <a href="#" class="insurance-verification-link">Verify your coverage</a>
+                    </div>
+                    
+                    <div class="need-help-section">
+                        <div class="need-help-content">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <h3>Need help booking?</h3>
+                                <p>Call us at (800) 555-1234</p>
+                                <p class="help-hours">Available Mon-Fri, 8AM-5PM</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="detail-sidebar">
-                <div class="section-title">Book Appointment</div>
-                <div class="calendar-header">
-                    <button><i class="fas fa-chevron-left"></i></button>
-                    <span>July 2023</span>
-                    <button><i class="fas fa-chevron-right"></i></button>
-                </div>
-                
-                <div class="timeslots">
-                    <div class="timeslot">9:00 AM</div>
-                    <div class="timeslot">10:30 AM</div>
-                    <div class="timeslot unavailable">11:45 AM</div>
-                    <div class="timeslot">1:15 PM</div>
-                    <div class="timeslot">2:30 PM</div>
-                    <div class="timeslot unavailable">3:45 PM</div>
-                    <div class="timeslot">4:15 PM</div>
-                </div>
-                
-                <div class="section-title">Visit Types & Pricing</div>
-                <div class="visit-types">
-                    <div class="visit-type">
-                        <div class="visit-name">New Patient Visit</div>
-                        <div class="visit-price">$150-200</div>
+            <div class="bottom-cta-section">
+                <h2>Ready to schedule your appointment?</h2>
+                <p>Evergreen Family Health Network is currently accepting new patients</p>
+                <a href="#book-appointment" class="btn btn-primary large-btn">Book Now</a>
+            </div>
+        </div>
+        
+        <!-- Dr. Sarah Johnson Provider Details (hide initially) -->
+        <div class="provider-section" id="johnson-section">
+            <div class="detail-header">
+                <div class="provider-header">
+                    <div class="profile-icon-wrapper">
+                        <i class="fas fa-user-md fa-3x" style="color: white;"></i>
                     </div>
-                    <div class="visit-type">
-                        <div class="visit-name">Follow-up Visit</div>
-                        <div class="visit-price">$75-125</div>
-                    </div>
-                    <div class="visit-type">
-                        <div class="visit-name">Annual Physical</div>
-                        <div class="visit-price">$200-250</div>
-                    </div>
-                    <div class="visit-type">
-                        <div class="visit-name">Telehealth Visit</div>
-                        <div class="visit-price">$65-100</div>
+                    <div>
+                        <h1 class="detail-title">Dr. Sarah Johnson, MD</h1>
+                        <div class="provider-credentials">Family Medicine • Board Certified</div>
+                        <div class="detail-subtitle">
+                            <i class="fas fa-star" style="color: var(--warning);"></i>
+                            <i class="fas fa-star" style="color: var(--warning);"></i>
+                            <i class="fas fa-star" style="color: var(--warning);"></i>
+                            <i class="fas fa-star" style="color: var(--warning);"></i>
+                            <i class="fas fa-star-half-alt" style="color: var(--warning);"></i>
+                            4.5 (128 reviews)
+                        </div>
+                        <div class="provider-contact-info">
+                            <div><i class="fas fa-phone-alt"></i> (555) 123-4567</div>
+                            <div><i class="fas fa-envelope"></i> dr.johnson@healthpractice.com</div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="section-title">Insurance Accepted</div>
-                <div class="insurance-list">
-                    <p>• Aetna</p>
-                    <p>• Blue Cross Blue Shield</p>
-                    <p>• Cigna</p>
-                    <p>• United Healthcare</p>
-                    <p>• Medicare</p>
+                <div class="quick-action-buttons">
+                    <a href="#book-appointment" class="btn btn-primary">
+                        <i class="fas fa-calendar-plus"></i> Book Appointment
+                    </a>
+                    <button class="btn btn-outline save-provider">
+                        <i class="far fa-heart"></i> Save Provider
+                    </button>
                 </div>
+            </div>
+            
+            <div class="detail-content">
+                <div class="detail-main">
+                    <div class="provider-address-section">
+                        <div class="section-title">Location & Hours</div>
+                        <div class="location-hours-container">
+                            <div class="provider-location">
+                                <div class="address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <strong>Downtown Family Practice</strong><br>
+                                        123 Medical Center Blvd<br>
+                                        Suite 450<br>
+                                        San Francisco, CA 94115
+                                    </div>
+                                </div>
+                                <div class="map-container">
+                                    <img src="https://via.placeholder.com/450x200?text=Location+Map" alt="Office Location Map" class="location-map">
+                                    <a href="https://maps.google.com" target="_blank" class="directions-link"><i class="fas fa-directions"></i> Get Directions</a>
+                                </div>
+                            </div>
+                            <div class="business-hours">
+                                <h3><i class="far fa-clock"></i> Business Hours</h3>
+                                <div class="hours-grid">
+                                    <div>Monday - Friday</div>
+                                    <div>8:00 AM - 5:00 PM</div>
+                                    <div>Saturday</div>
+                                    <div>9:00 AM - 1:00 PM</div>
+                                    <div>Sunday</div>
+                                    <div>Closed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">About Dr. Sarah Johnson</div>
+                    <div class="provider-bio">
+                        <p>Dr. Sarah Johnson is a board-certified Family Medicine physician with over 10 years of experience. She specializes in preventive care, women's health, and managing chronic conditions. Dr. Johnson takes a patient-centered approach to healthcare, focusing on building long-term relationships with her patients and their families.</p>
+                        <p>She is committed to providing compassionate, comprehensive care and empowering patients through education about their health conditions and treatment options.</p>
+                    </div>
+                    
+                    <div class="section-title">Education & Experience</div>
+                    <div class="education-experience">
+                        <div class="education-item">
+                            <div class="education-degree">Doctor of Medicine (MD)</div>
+                            <div class="education-school">University of California, San Francisco</div>
+                            <div class="education-year">2010-2014</div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="education-degree">Residency, Family Medicine</div>
+                            <div class="education-school">Stanford Medical Center</div>
+                            <div class="education-year">2014-2017</div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-position">Family Physician</div>
+                            <div class="experience-location">Bay Area Health Partners</div>
+                            <div class="experience-duration">2017-Present</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">Insurance Coverage Details</div>
+                    <div class="insurance-coverage-details">
+                        <div class="insurance-provider-tabs">
+                            <button class="insurance-tab active" data-provider="aetna">Aetna</button>
+                            <button class="insurance-tab" data-provider="bcbs">Blue Cross</button>
+                            <button class="insurance-tab" data-provider="cigna">Cigna</button>
+                            <button class="insurance-tab" data-provider="united">United</button>
+                            <button class="insurance-tab" data-provider="medicare">Medicare</button>
+                        </div>
+                        
+                        <div class="insurance-content active" id="aetna-content">
+                            <div class="insurance-status in-network">
+                                <i class="fas fa-check-circle"></i> In-Network Provider
+                            </div>
+                            <div class="insurance-details-grid">
+                                <div class="insurance-detail">
+                                    <div class="detail-label">Office Visit Copay</div>
+                                    <div class="detail-value">$25 - $40</div>
+                                </div>
+                                <div class="insurance-detail">
+                                    <div class="detail-label">Specialist Copay</div>
+                                    <div class="detail-value">$50</div>
+                                </div>
+                                <div class="insurance-detail">
+                                    <div class="detail-label">Coinsurance</div>
+                                    <div class="detail-value">20% after deductible</div>
+                                </div>
+                                <div class="insurance-detail">
+                                    <div class="detail-label">Prior Authorization</div>
+                                    <div class="detail-value">Required for some services</div>
+                                </div>
+                            </div>
+                            <div class="insurance-note">
+                                <i class="fas fa-info-circle"></i>
+                                <p>Actual coverage and costs may vary based on your specific plan. Contact your insurance provider for detailed information.</p>
+                            </div>
+                            <div class="insurance-verification">
+                                <button class="btn btn-verify-insurance">
+                                    <i class="fas fa-id-card"></i> Verify Your Benefits
+                                </button>
+                                <p class="verify-text">Verify eligibility and coverage before your visit</p>
+                            </div>
+                        </div>
+                        
+                        <div class="insurance-content" id="bcbs-content">
+                            <div class="insurance-status in-network">
+                                <i class="fas fa-check-circle"></i> In-Network Provider
+                            </div>
+                            <div class="insurance-details-grid">
+                                <div class="insurance-detail">
+                                    <div class="detail-label">Office Visit Copay</div>
+                                    <div class="detail-value">$15 - $30</div>
+                                </div>
+                                <div class="insurance-detail">
+                                    <div class="detail-label">Specialist Copay</div>
+                                    <div class="detail-value">$45</div>
+                                </div>
+                                <div class="insurance-detail">
+                                    <div class="detail-label">Coinsurance</div>
+                                    <div class="detail-value">15% after deductible</div>
+                                </div>
+                                <div class="insurance-detail">
+                                    <div class="detail-label">Prior Authorization</div>
+                                    <div class="detail-value">Required for some services</div>
+                                </div>
+                            </div>
+                            <div class="insurance-note">
+                                <i class="fas fa-info-circle"></i>
+                                <p>Actual coverage and costs may vary based on your specific plan. Contact your insurance provider for detailed information.</p>
+                            </div>
+                            <div class="insurance-verification">
+                                <button class="btn btn-verify-insurance">
+                                    <i class="fas fa-id-card"></i> Verify Your Benefits
+                                </button>
+                                <p class="verify-text">Verify eligibility and coverage before your visit</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Add similar sections for other insurance providers -->
+                        <div class="insurance-content" id="cigna-content">
+                            <!-- Cigna content would go here, similar structure -->
+                        </div>
+                        
+                        <div class="insurance-content" id="united-content">
+                            <!-- UnitedHealthcare content would go here, similar structure -->
+                        </div>
+                        
+                        <div class="insurance-content" id="medicare-content">
+                            <!-- Medicare content would go here, similar structure -->
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">Quality Metrics</div>
+                    <div class="quality-metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">97%</div>
+                            <div class="metric-label">Patient Satisfaction</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">15 min</div>
+                            <div class="metric-label">Avg. Wait Time</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">5+</div>
+                            <div class="metric-label">Languages Spoken</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">1000+</div>
+                            <div class="metric-label">Patients Treated</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">Cost & Services</div>
+                    <div class="cost-services-section">
+                        <div class="cost-summary">
+                            <div class="total-cost-header">Estimated Visit Cost</div>
+                            <div class="total-cost-value">$150 - $250</div>
+                            <div class="cost-note">*Prices vary based on visit type and insurance coverage</div>
+                        </div>
+                        
+                        <div class="services-breakdown">
+                            <h3>Itemized Services</h3>
+                            <div class="service-item">
+                                <div class="service-name">New Patient Visit</div>
+                                <div class="service-cost">$200-250</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-name">Follow-up Visit</div>
+                                <div class="service-cost">$75-125</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-name">Annual Physical</div>
+                                <div class="service-cost">$200-250</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-name">Telehealth Visit</div>
+                                <div class="service-cost">$65-100</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">Patient Reviews</div>
+                    <div class="patient-reviews">
+                        <div class="review-summary">
+                            <div class="average-rating">4.5</div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="review-count">Based on 128 reviews</div>
+                        </div>
+                        
+                        <div class="review-item">
+                            <div class="review-rating">
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                            </div>
+                            <div class="review-text">
+                                "Dr. Johnson is incredibly thorough and takes the time to listen. She explained everything clearly and made sure I understood my treatment options."
+                            </div>
+                            <div class="review-author">- Michael T., 2 months ago</div>
+                        </div>
+                        
+                        <div class="review-item">
+                            <div class="review-rating">
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="far fa-star" style="color: var(--warning);"></i>
+                            </div>
+                            <div class="review-text">
+                                "Great bedside manner and very knowledgeable. The office wait time was a bit long but the quality of care made up for it."
+                            </div>
+                            <div class="review-author">- Rebecca L., 1 month ago</div>
+                        </div>
+                        
+                        <div class="review-item">
+                            <div class="review-rating">
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                                <i class="fas fa-star" style="color: var(--warning);"></i>
+                            </div>
+                            <div class="review-text">
+                                "Dr. Johnson has been my family doctor for years. She's always attentive and genuinely cares about her patients' wellbeing. Highly recommend!"
+                            </div>
+                            <div class="review-author">- James K., 3 weeks ago</div>
+                        </div>
+                        
+                        <a href="#" class="view-all-reviews">View all 128 reviews</a>
+                    </div>
+                </div>
+                
+                <div class="detail-sidebar">
+                    <div id="book-appointment" class="section-title">Book Appointment</div>
+                    <div class="appointment-booking-section">
+                        <div class="calendar-header">
+                            <button><i class="fas fa-chevron-left"></i></button>
+                            <span>July 2023</span>
+                            <button><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        
+                        <div class="timeslots">
+                            <div class="timeslot">9:00 AM</div>
+                            <div class="timeslot">10:30 AM</div>
+                            <div class="timeslot unavailable">11:45 AM</div>
+                            <div class="timeslot">1:15 PM</div>
+                            <div class="timeslot">2:30 PM</div>
+                            <div class="timeslot unavailable">3:45 PM</div>
+                            <div class="timeslot">4:15 PM</div>
+                        </div>
+                        
+                        <form class="booking-form">
+                            <div class="form-group">
+                                <label for="visit-type">Visit Type</label>
+                                <select id="visit-type" required>
+                                    <option value="" selected disabled>Select visit type</option>
+                                    <option value="new-patient">New Patient Visit</option>
+                                    <option value="follow-up">Follow-up Visit</option>
+                                    <option value="annual">Annual Physical</option>
+                                    <option value="telehealth">Telehealth Visit</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="insurance">Insurance Plan</label>
+                                <select id="insurance">
+                                    <option value="" selected disabled>Select your insurance</option>
+                                    <option value="aetna">Aetna</option>
+                                    <option value="bcbs">Blue Cross Blue Shield</option>
+                                    <option value="cigna">Cigna</option>
+                                    <option value="united">UnitedHealthcare</option>
+                                    <option value="medicare">Medicare</option>
+                                    <option value="self">Self-Pay</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary full-width">Schedule Appointment</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="section-title">Patient Rewards</div>
+                    <div class="rewards-section">
+                        <div class="reward-badge">
+                            <i class="fas fa-gift"></i>
+                            <div class="reward-info">
+                                <h3>New Patient Bonus</h3>
+                                <p>$25 gift card for new patients who complete their first visit</p>
+                            </div>
+                        </div>
+                        <div class="reward-badge">
+                            <i class="fas fa-calendar-check"></i>
+                            <div class="reward-info">
+                                <h3>On-Time Arrival Rewards</h3>
+                                <p>Earn points for arriving on time to your appointments</p>
+                            </div>
+                        </div>
+                        <div class="learn-more-rewards">
+                            <a href="rewards-program.html" class="btn btn-outline full-width">Learn More About Rewards</a>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">Insurance Accepted</div>
+                    <div class="insurance-list">
+                        <p><i class="fas fa-check-circle"></i> Aetna</p>
+                        <p><i class="fas fa-check-circle"></i> Blue Cross Blue Shield</p>
+                        <p><i class="fas fa-check-circle"></i> Cigna</p>
+                        <p><i class="fas fa-check-circle"></i> UnitedHealthcare</p>
+                        <p><i class="fas fa-check-circle"></i> Medicare</p>
+                        <p>And 10+ more plans accepted</p>
+                        <a href="#" class="insurance-verification-link">Verify your coverage</a>
+                    </div>
+                    
+                    <div class="need-help-section">
+                        <div class="need-help-content">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <h3>Need help booking?</h3>
+                                <p>Call us at (800) 555-1234</p>
+                                <p class="help-hours">Available Mon-Fri, 8AM-5PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bottom-cta-section">
+                <h2>Ready to schedule your appointment?</h2>
+                <p>Dr. Sarah Johnson is currently accepting new patients</p>
+                <a href="#book-appointment" class="btn btn-primary large-btn">Book Now</a>
             </div>
         </div>
     </div>
+    
+    <script>
+        // Add JavaScript for mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('mobile-active');
+        });
+        
+        // Existing provider tab functionality 
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle between providers
+            const providerTabs = document.querySelectorAll('.provider-tab');
+            providerTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    providerTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all provider sections
+                    document.querySelectorAll('.provider-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Show selected provider section
+                    const providerID = this.getAttribute('data-provider');
+                    document.getElementById(`${providerID}-section`).classList.add('active');
+                });
+            });
+
+            // Toggle favorite status
+            const saveButtons = document.querySelectorAll('.save-provider');
+            saveButtons.forEach(saveButton => {
+                saveButton.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        this.classList.add('active');
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        this.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
