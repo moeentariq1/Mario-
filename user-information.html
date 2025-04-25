@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information | mario</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search-results.css">
+    <link rel="stylesheet" href="user-information.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>mario</h1>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html#providers">Providers</a></li>
+                    <li><a href="provider-details.html">Find a Provider</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#appointments">Appointments</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <span class="welcome-user">Welcome, User!</span>
+                <div class="profile-dropdown">
+                    <button class="profile-icon active" aria-label="User profile">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="rewards-program.html" class="dropdown-item">
+                            <i class="fas fa-award"></i> Rewards Program
+                        </a>
+                        <a href="user-information.html" class="dropdown-item">
+                            <i class="fas fa-info-circle"></i> Information
+                        </a>
+                    </div>
+                </div>
+                <button class="btn-icon theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-title">
+                <h1><i class="fas fa-user-circle"></i> User Information</h1>
+                <p>View and manage your personal information and activity</p>
+            </div>
+
+            <div class="info-cards-container">
+                <!-- Personal Information Card -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <h2><i class="fas fa-id-card"></i> Personal Information</h2>
+                        <button class="edit-btn"><i class="fas fa-pencil-alt"></i> Edit</button>
+                    </div>
+                    <div class="info-card-body">
+                        <div class="info-group">
+                            <h3>Name</h3>
+                            <p>John Smith</p>
+                        </div>
+                        <div class="info-group">
+                            <h3>Email</h3>
+                            <p>john.smith@example.com</p>
+                        </div>
+                        <div class="info-group">
+                            <h3>Phone Number</h3>
+                            <p>(555) 123-4567</p>
+                        </div>
+                        <div class="info-group">
+                            <h3>Date of Birth</h3>
+                            <p>January 15, 1985</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insurance Information Card -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <h2><i class="fas fa-file-medical"></i> Insurance Information</h2>
+                        <button class="edit-btn"><i class="fas fa-pencil-alt"></i> Edit</button>
+                    </div>
+                    <div class="info-card-body">
+                        <div class="info-group">
+                            <h3>Provider</h3>
+                            <p>Blue Cross Blue Shield</p>
+                        </div>
+                        <div class="info-group">
+                            <h3>Member ID</h3>
+                            <p>XYZ123456789</p>
+                        </div>
+                        <div class="info-group">
+                            <h3>Group Number</h3>
+                            <p>GRP987654</p>
+                        </div>
+                        <div class="info-group">
+                            <h3>Coverage Type</h3>
+                            <p>PPO Premium</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Searches Card -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <h2><i class="fas fa-search"></i> Recent Searches</h2>
+                        <button class="view-all-btn">View All</button>
+                    </div>
+                    <div class="info-card-body">
+                        <div class="search-history-list">
+                            <div class="search-item">
+                                <div class="search-info">
+                                    <h3>MRI scan</h3>
+                                    <span class="search-date">Today at 10:45 AM</span>
+                                </div>
+                                <a href="search-results.html" class="search-action">
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="search-item">
+                                <div class="search-info">
+                                    <h3>Lisinopril price comparison</h3>
+                                    <span class="search-date">Yesterday at 3:20 PM</span>
+                                </div>
+                                <a href="search-results.html" class="search-action">
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="search-item">
+                                <div class="search-info">
+                                    <h3>Primary care doctor near me</h3>
+                                    <span class="search-date">July 10, 2023</span>
+                                </div>
+                                <a href="search-results.html" class="search-action">
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="search-item">
+                                <div class="search-info">
+                                    <h3>Annual checkup cost</h3>
+                                    <span class="search-date">July 5, 2023</span>
+                                </div>
+                                <a href="search-results.html" class="search-action">
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preferences Card -->
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <h2><i class="fas fa-sliders-h"></i> Account Preferences</h2>
+                        <button class="edit-btn"><i class="fas fa-pencil-alt"></i> Edit</button>
+                    </div>
+                    <div class="info-card-body">
+                        <div class="preference-group">
+                            <h3>Communication Settings</h3>
+                            <div class="preference-item">
+                                <span>Email Notifications</span>
+                                <span class="status enabled">Enabled</span>
+                            </div>
+                            <div class="preference-item">
+                                <span>SMS Notifications</span>
+                                <span class="status disabled">Disabled</span>
+                            </div>
+                            <div class="preference-item">
+                                <span>Marketing Communications</span>
+                                <span class="status enabled">Enabled</span>
+                            </div>
+                        </div>
+                        <div class="preference-group">
+                            <h3>Privacy Settings</h3>
+                            <div class="preference-item">
+                                <span>Data Sharing for Research</span>
+                                <span class="status enabled">Enabled</span>
+                            </div>
+                            <div class="preference-item">
+                                <span>Third-Party Marketing</span>
+                                <span class="status disabled">Disabled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>mario</h3>
+                    <p>Making healthcare shopping transparent, affordable, and accessible for everyone.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Find Providers</a></li>
+                        <li><a href="#">Compare Prices</a></li>
+                        <li><a href="#">Book Appointments</a></li>
+                        <li><a href="#">Insurance Verification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">For Employers</a></li>
+                        <li><a href="#">For Providers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 mario. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="common.js"></script>
+</body>
+</html>
