@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealthCare Marketplace</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search.css"> <!-- Add the new CSS file -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,10 +19,11 @@
             </div>
             <nav class="desktop-nav">
                 <ul>
-                    <li><a href="#providers">Providers</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#appointments">Appointments</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#prescription-savings">Prescription Savings</a></li>
+                    <li><a href="provider-details.html">Find a Provider</a></li>
+                    <li><a href="#telehealth">Telehealth</a></li>
+                    <li><a href="#health-services">Health Services</a></li>
+                    <li><a href="#plus-membership">Plus Membership</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
@@ -42,16 +44,57 @@
         <section class="hero">
             <div class="container">
                 <h2>Shop for healthcare like everything else</h2>
-                <p>Find, compare, and book healthcare services at transparent prices.</p>
+                <p>Know what you're paying before you go in</p>
                 
                 <div class="search-container">
                     <div class="search-bar">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search for doctors, procedures, or clinics...">
+                        <div class="search-section">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Drug, condition, procedure, doctor...">
+                        </div>
+                        <div class="search-divider"></div>
+                        <div class="search-section">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" list="locations" placeholder="Location">
+                            <datalist id="locations">
+                                <option value="New York, NY">
+                                <option value="Los Angeles, CA">
+                                <option value="Chicago, IL">
+                                <option value="Houston, TX">
+                                <option value="Phoenix, AZ">
+                                <option value="Philadelphia, PA">
+                                <option value="San Antonio, TX">
+                                <option value="San Diego, CA">
+                                <option value="Dallas, TX">
+                                <option value="San Francisco, CA">
+                                <option value="Boston, MA">
+                                <option value="Miami, FL">
+                                <option value="Seattle, WA">
+                            </datalist>
+                        </div>
+                        <div class="search-divider"></div>
+                        <div class="search-section">
+                            <i class="fas fa-id-card"></i>
+                            <input type="text" list="insurances" placeholder="Insurance">
+                            <datalist id="insurances">
+                                <option value="Aetna">
+                                <option value="Blue Cross Blue Shield">
+                                <option value="Cigna">
+                                <option value="UnitedHealthcare">
+                                <option value="Humana">
+                                <option value="Kaiser Permanente">
+                                <option value="Medicare">
+                                <option value="Medicaid">
+                                <option value="Anthem">
+                                <option value="Centene">
+                                <option value="Molina Healthcare">
+                                <option value="CVS Health">
+                            </datalist>
+                        </div>
                         <button class="btn btn-primary">Search</button>
                     </div>
                 </div>
-
+                
                 <div class="partner-logos">
                     <p>Trusted by leading healthcare providers</p>
                     <div class="logos">
@@ -60,47 +103,6 @@
                         <span class="logo-badge">UnitedHealth</span>
                         <span class="logo-badge">Cigna</span>
                         <span class="logo-badge">Kaiser</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="services" id="providers">
-            <div class="container">
-                <h2>Search for Providers & Services</h2>
-                <p>Find the right care based on your needs and insurance coverage</p>
-                
-                <div class="autocomplete-demo">
-                    <div class="search-bar">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Try typing 'cardiologist' or 'MRI'">
-                    </div>
-                    <div class="suggestions">
-                        <div class="suggestion-item">
-                            <i class="fas fa-user-md"></i>
-                            <div>
-                                <strong>Cardiologist</strong>
-                                <span>Heart specialist</span>
-                            </div>
-                        </div>
-                        <div class="suggestion-item">
-                            <i class="fas fa-heartbeat"></i>
-                            <div>
-                                <strong>Cardiac Evaluation</strong>
-                                <span>Heart health assessment</span>
-                            </div>
-                        </div>
-                        <div class="suggestion-item blur-item">
-                            <i class="fas fa-hospital"></i>
-                            <div>
-                                <strong>Cardiac Care Centers</strong>
-                                <span>Specialized heart clinics</span>
-                            </div>
-                        </div>
-                        <div class="login-prompt">
-                            <button class="btn btn-primary">Login to see more results</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -165,82 +167,6 @@
                         </div>
                         <span class="badge">Insurance price available</span>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="appointments" id="appointments">
-            <div class="container">
-                <h2>Instant Appointment Availability</h2>
-                <p>Book healthcare appointments online as easily as reserving a table</p>
-                
-                <div class="calendar">
-                    <div class="calendar-header">
-                        <button class="btn-icon"><i class="fas fa-chevron-left"></i></button>
-                        <h3>October 2023</h3>
-                        <button class="btn-icon"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                    <div class="weekdays">
-                        <span>Mon</span>
-                        <span>Tue</span>
-                        <span>Wed</span>
-                        <span>Thu</span>
-                        <span>Fri</span>
-                        <span>Sat</span>
-                        <span>Sun</span>
-                    </div>
-                    <div class="days">
-                        <span class="day other-month">25</span>
-                        <span class="day other-month">26</span>
-                        <span class="day other-month">27</span>
-                        <span class="day other-month">28</span>
-                        <span class="day other-month">29</span>
-                        <span class="day other-month">30</span>
-                        <span class="day">1</span>
-                        <span class="day">2</span>
-                        <span class="day">3</span>
-                        <span class="day">4</span>
-                        <span class="day">5</span>
-                        <span class="day">6</span>
-                        <span class="day">7</span>
-                        <span class="day">8</span>
-                        <span class="day available">9</span>
-                        <span class="day">10</span>
-                        <span class="day available">11</span>
-                        <span class="day">12</span>
-                        <span class="day available">13</span>
-                        <span class="day">14</span>
-                        <span class="day">15</span>
-                        <span class="day available">16</span>
-                        <span class="day">17</span>
-                        <span class="day available">18</span>
-                        <span class="day">19</span>
-                        <span class="day">20</span>
-                        <span class="day">21</span>
-                        <span class="day">22</span>
-                        <span class="day available">23</span>
-                        <span class="day">24</span>
-                        <span class="day available">25</span>
-                        <span class="day">26</span>
-                        <span class="day available">27</span>
-                        <span class="day">28</span>
-                        <span class="day">29</span>
-                        <span class="day other-month">1</span>
-                        <span class="day other-month">2</span>
-                        <span class="day other-month">3</span>
-                        <span class="day other-month">4</span>
-                        <span class="day other-month">5</span>
-                    </div>
-                </div>
-                
-                <div class="calendar-footer blur-item">
-                    <div class="time-slots">
-                        <span class="time-slot">9:00 AM</span>
-                        <span class="time-slot">10:30 AM</span>
-                        <span class="time-slot">1:15 PM</span>
-                        <span class="time-slot">3:45 PM</span>
-                    </div>
-                    <button class="btn btn-primary">Login to book instantly with your insurance</button>
                 </div>
             </div>
         </section>
@@ -455,24 +381,26 @@
     </footer>
 
     <nav class="mobile-nav">
-        <a href="#providers">
-            <i class="fas fa-search"></i>
-            <span>Providers</span>
+        <a href="#prescription-savings">
+            <i class="fas fa-prescription-bottle-alt"></i>
+            <span>Rx Savings</span>
         </a>
-        <a href="#pricing">
-            <i class="fas fa-tags"></i>
-            <span>Pricing</span>
+        <a href="#telehealth">
+            <i class="fas fa-video"></i>
+            <span>Telehealth</span>
         </a>
-        <a href="#appointments">
-            <i class="fas fa-calendar"></i>
-            <span>Appointments</span>
+        <a href="#health-services">
+            <i class="fas fa-heartbeat"></i>
+            <span>Services</span>
         </a>
-        <a href="#login-content">
-            <i class="fas fa-user"></i>
-            <span>Account</span>
+        <a href="#plus-membership">
+            <i class="fas fa-plus-circle"></i>
+            <span>Plus</span>
         </a>
     </nav>
 
     <script src="script.js"></script>
+    <script src="common.js"></script>
+    <script src="search-redirect.js"></script>
 </body>
 </html>
