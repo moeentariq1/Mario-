@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewards Program | mario</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search-results.css">
+    <link rel="stylesheet" href="rewards-program.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>mario</h1>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html#providers">Providers</a></li>
+                    <li><a href="provider-details.html">Find a Provider</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#appointments">Appointments</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <span class="welcome-user">Welcome, User!</span>
+                <div class="profile-dropdown">
+                    <button class="profile-icon active" aria-label="User profile">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="rewards-program.html" class="dropdown-item">
+                            <i class="fas fa-award"></i> Rewards Program
+                        </a>
+                        <a href="user-information.html" class="dropdown-item">
+                            <i class="fas fa-info-circle"></i> Information
+                        </a>
+                    </div>
+                </div>
+                <button class="btn-icon theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-title">
+                <h1><i class="fas fa-award"></i> Health Savings Rewards Program</h1>
+                <p>Earn rewards for making smart healthcare choices and save money while prioritizing your health.</p>
+            </div>
+
+            <div class="rewards-overview">
+                <div class="rewards-card main-card">
+                    <div class="rewards-header">
+                        <h2>Your Rewards Summary</h2>
+                    </div>
+                    <div class="rewards-body">
+                        <div class="rewards-stats">
+                            <div class="rewards-stat-item">
+                                <div class="stat-value">1,250</div>
+                                <div class="stat-label">Points Balance</div>
+                            </div>
+                            <div class="rewards-stat-item">
+                                <div class="stat-value">$125</div>
+                                <div class="stat-label">Cash Value</div>
+                            </div>
+                            <div class="rewards-stat-item">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">Rewards Earned</div>
+                            </div>
+                        </div>
+                        <div class="rewards-progress">
+                            <div class="progress-label">
+                                <span>Next Reward: $25 Gift Card</span>
+                                <span>250 points to go</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="rewards-actions">
+                            <button class="btn btn-primary">Redeem Rewards</button>
+                            <button class="btn btn-outline">View History</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rewards-cards-grid">
+                <!-- Point System Card -->
+                <div class="rewards-card">
+                    <div class="rewards-header">
+                        <h2><i class="fas fa-coins"></i> Point System</h2>
+                    </div>
+                    <div class="rewards-body">
+                        <p>Earn points for making smart healthcare choices. Every 100 points equals $10 in rewards.</p>
+                        <div class="rewards-list">
+                            <div class="rewards-item">
+                                <div class="rewards-item-info">
+                                    <h3>Telemedicine Visit</h3>
+                                    <p>Choose a telemedicine consultation instead of in-person visit</p>
+                                </div>
+                                <div class="rewards-item-points">
+                                    <span>+100</span>
+                                    <span class="points-label">points</span>
+                                </div>
+                            </div>
+                            
+                            <div class="rewards-item">
+                                <div class="rewards-item-info">
+                                    <h3>Independent Lab Test</h3>
+                                    <p>Use an independent lab for tests instead of hospital facilities</p>
+                                </div>
+                                <div class="rewards-item-points">
+                                    <span>+150</span>
+                                    <span class="points-label">points</span>
+                                </div>
+                            </div>
+                            
+                            <div class="rewards-item">
+                                <div class="rewards-item-info">
+                                    <h3>Generic Medication</h3>
+                                    <p>Choose generic medications over name brand when available</p>
+                                </div>
+                                <div class="rewards-item-points">
+                                    <span>+75</span>
+                                    <span class="points-label">points</span>
+                                </div>
+                            </div>
+                            
+                            <div class="rewards-item">
+                                <div class="rewards-item-info">
+                                    <h3>Preventive Screening</h3>
+                                    <p>Complete your annual preventive health screenings</p>
+                                </div>
+                                <div class="rewards-item-points">
+                                    <span>+200</span>
+                                    <span class="points-label">points</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rewards Tracker Card -->
+                <div class="rewards-card">
+                    <div class="rewards-header">
+                        <h2><i class="fas fa-chart-line"></i> Rewards Tracker</h2>
+                    </div>
+                    <div class="rewards-body">
+                        <p>Track your earned rewards and savings over time.</p>
+                        <div class="recent-rewards">
+                            <h3>Recent Activity</h3>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon positive">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <h4>Telemedicine visit with Dr. Johnson</h4>
+                                        <span class="activity-date">July 15, 2023</span>
+                                    </div>
+                                    <div class="activity-points positive">+100 points</div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon positive">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <h4>Lab test at CityLabs</h4>
+                                        <span class="activity-date">July 10, 2023</span>
+                                    </div>
+                                    <div class="activity-points positive">+150 points</div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon negative">
+                                        <i class="fas fa-minus"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <h4>Redeemed Amazon Gift Card</h4>
+                                        <span class="activity-date">June 30, 2023</span>
+                                    </div>
+                                    <div class="activity-points negative">-500 points</div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon positive">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <h4>Annual wellness checkup</h4>
+                                        <span class="activity-date">June 22, 2023</span>
+                                    </div>
+                                    <div class="activity-points positive">+200 points</div>
+                                </div>
+                            </div>
+                            <a href="#" class="view-all-link">View All Activity <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Incentives Display Card -->
+                <div class="rewards-card">
+                    <div class="rewards-header">
+                        <h2><i class="fas fa-gift"></i> Available Incentives</h2>
+                    </div>
+                    <div class="rewards-body">
+                        <p>Discover rewards you can earn from current healthcare options.</p>
+                        <div class="incentives-list">
+                            <div class="incentive-item">
+                                <div class="incentive-badge">
+                                    <i class="fas fa-tag"></i>
+                                </div>
+                                <div class="incentive-details">
+                                    <h3>Urgent Care Visit</h3>
+                                    <p>Use urgent care instead of ER for non-emergencies</p>
+                                    <div class="savings-info">
+                                        <span class="savings-points">+125 points</span>
+                                        <span class="savings-value">Typical Savings: $850</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="incentive-item">
+                                <div class="incentive-badge">
+                                    <i class="fas fa-tag"></i>
+                                </div>
+                                <div class="incentive-details">
+                                    <h3>Imaging Center MRI</h3>
+                                    <p>Choose independent imaging centers over hospital facilities</p>
+                                    <div class="savings-info">
+                                        <span class="savings-points">+175 points</span>
+                                        <span class="savings-value">Typical Savings: $1,100</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="incentive-item">
+                                <div class="incentive-badge">
+                                    <i class="fas fa-tag"></i>
+                                </div>
+                                <div class="incentive-details">
+                                    <h3>Mail Order Prescriptions</h3>
+                                    <p>Use 90-day mail order for maintenance medications</p>
+                                    <div class="savings-info">
+                                        <span class="savings-points">+100 points</span>
+                                        <span class="savings-value">Typical Savings: $240/year</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cta-container">
+                            <a href="search-results.html" class="btn btn-primary">Find Reward Opportunities</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- How It Works Card -->
+                <div class="rewards-card">
+                    <div class="rewards-header">
+                        <h2><i class="fas fa-question-circle"></i> How It Works</h2>
+                    </div>
+                    <div class="rewards-body">
+                        <div class="steps-container">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Search for Care</h3>
+                                    <p>Look for the reward badge on search results to find options that earn points.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Make Smart Choices</h3>
+                                    <p>Choose value care options identified by our reward system.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Earn Points</h3>
+                                    <p>Points are automatically added to your account after your visit or service.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Redeem Rewards</h3>
+                                    <p>Convert your points to gift cards or healthcare credits when you're ready.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>mario</h3>
+                    <p>Making healthcare shopping transparent, affordable, and accessible for everyone.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Find Providers</a></li>
+                        <li><a href="#">Compare Prices</a></li>
+                        <li><a href="#">Book Appointments</a></li>
+                        <li><a href="#">Insurance Verification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">For Employers</a></li>
+                        <li><a href="#">For Providers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 mario. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            
+            themeToggle.addEventListener('click', function() {
+                if (document.body.getAttribute('data-theme') === 'dark') {
+                    document.body.removeAttribute('data-theme');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.body.setAttribute('data-theme', 'dark');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+            
+            // Profile dropdown
+            const profileIcon = document.querySelector('.profile-icon');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            
+            profileIcon.addEventListener('click', function() {
+                this.classList.toggle('active');
+                dropdownMenu.style.opacity = dropdownMenu.style.opacity === '1' ? '0' : '1';
+                dropdownMenu.style.visibility = dropdownMenu.style.visibility === 'visible' ? 'hidden' : 'visible';
+                dropdownMenu.style.transform = dropdownMenu.style.transform === 'translateY(0px)' ? 'translateY(10px)' : 'translateY(0px)';
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.profile-dropdown')) {
+                    profileIcon.classList.remove('active');
+                    dropdownMenu.style.opacity = '0';
+                    dropdownMenu.style.visibility = 'hidden';
+                    dropdownMenu.style.transform = 'translateY(10px)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
