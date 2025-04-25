@@ -19,14 +19,28 @@
             </div>
             <nav class="desktop-nav">
                 <ul>
-                    <li><a href="index.html#providers">Providers</a></li>
-                    <li><a href="index.html#pricing">Pricing</a></li>
-                    <li><a href="index.html#appointments">Appointments</a></li>
-                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="#prescription-savings">Prescription Savings</a></li>
+                    <li><a href="provider-details.html">Find a Provider</a></li>
+                    <li><a href="#telehealth">Telehealth</a></li>
+                    <li><a href="#health-services">Health Services</a></li>
+                    <li><a href="#plus-membership">Plus Membership</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
                 <span class="welcome-user">Welcome, User!</span>
+                <div class="profile-dropdown">
+                    <button class="profile-icon" aria-label="User profile">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="rewards-program.html" class="dropdown-item">
+                            <i class="fas fa-award"></i> Rewards Program
+                        </a>
+                        <a href="user-information.html" class="dropdown-item">
+                            <i class="fas fa-info-circle"></i> Information
+                        </a>
+                    </div>
+                </div>
                 <button class="btn-icon theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -97,11 +111,41 @@
                 <section class="search-header">
                     <div class="container">
                         <div class="search-bar">
-                            <i class="fas fa-search"></i>
-                            <input type="text" value="MRI scan" placeholder="Search for doctors, procedures, or medicine...">
-                            <button class="voice-search" aria-label="Voice search">
-                                <i class="fas fa-microphone"></i>
-                            </button>
+                            <div class="search-section">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Drug, condition, procedure, doctor...">
+                            </div>
+                            <div class="search-divider"></div>
+                            <div class="search-section">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" list="locations" placeholder="Location">
+                                <datalist id="locations">
+                                    <option value="New York, NY">
+                                    <option value="Los Angeles, CA">
+                                    <option value="Chicago, IL">
+                                    <option value="Houston, TX">
+                                    <option value="Phoenix, AZ">
+                                    <option value="Philadelphia, PA">
+                                    <option value="San Antonio, TX">
+                                    <option value="San Diego, CA">
+                                    <option value="Dallas, TX">
+                                </datalist>
+                            </div>
+                            <div class="search-divider"></div>
+                            <div class="search-section">
+                                <i class="fas fa-id-card"></i>
+                                <input type="text" list="insurances" placeholder="Insurance">
+                                <datalist id="insurances">
+                                    <option value="Aetna">
+                                    <option value="Blue Cross Blue Shield">
+                                    <option value="Cigna">
+                                    <option value="UnitedHealthcare">
+                                    <option value="Humana">
+                                    <option value="Kaiser Permanente">
+                                    <option value="Medicare">
+                                    <option value="Medicaid">
+                                </datalist>
+                            </div>
                             <button class="btn btn-primary">Search</button>
                         </div>
                         
@@ -312,6 +356,38 @@
                                             </div>
                                             <a href="provider-details.html" class="btn btn-outline">View Profile</a>
                                         </div>
+                                        <div class="result-card">
+                                            <div class="result-type-tag">Radiologist</div>
+                                            <h3>Dr. Emily White, MD</h3>
+                                            <div class="result-location">City Imaging</div>
+                                            <div class="result-distance">3.0 miles away</div>
+                                            <div class="result-availability">Available today</div>
+                                            <div class="result-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <i class="far fa-star"></i>
+                                                <span>4.2 (75 reviews)</span>
+                                            </div>
+                                            <a href="provider-details.html" class="btn btn-outline">View Profile</a>
+                                        </div>
+                                        <div class="result-card">
+                                            <div class="result-type-tag">Neurologist</div>
+                                            <h3>Dr. John Smith, MD</h3>
+                                            <div class="result-location">Neuro Care Clinic</div>
+                                            <div class="result-distance">5.0 miles away</div>
+                                            <div class="result-availability">Available tomorrow</div>
+                                            <div class="result-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                                <span>4.7 (110 reviews)</span>
+                                            </div>
+                                            <a href="provider-details.html" class="btn btn-outline">View Profile</a>
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -387,58 +463,169 @@
 
                             <div class="results-layout-split">
                                 <div class="without-insurance-section">
-                                    <h3 class="insurance-section-header">Without Insurance</h3>
-                                    <div class="results-grid medicine-grid">
-                                        <!-- Medicine results -->
-                                        <div class="result-card">
-                                            <div class="result-header">
-                                                <span class="result-type">Medication</span>
-                                                <button class="save-item">
-                                                    <i class="far fa-heart"></i>
-                                                </button>
+                                    <h3 class="insurance-section-header">Pharmacy Price Comparison</h3>
+                                    
+                                    <!-- Mario's Pick Section -->
+                                    <div class="marios-pick-container">
+                                        <div class="marios-pick-header">
+                                            <div class="marios-pick-badge">
+                                                <i class="fas fa-award"></i> Mario's Pick
                                             </div>
-                                            <h3 class="result-title">Gadavist (Gadobutrol)</h3>
-                                            <p class="result-facility">MRI Contrast Agent</p>
-                                            <div class="result-price">$75 - $120 per dose</div>
-                                            <div class="result-metrics">
-                                                <span><i class="fas fa-star"></i> 4.7</span>
-                                                <span><i class="fas fa-prescription-bottle-alt"></i> Multiple pharmacies</span>
-                                            </div>
-                                            <a href="medication-details.html" class="view-details-btn">View Details</a>
+                                            <div class="marios-pick-savings">Save up to 75% compared to retail</div>
                                         </div>
                                         
-                                        <div class="result-card">
+                                        <div class="result-card featured-card">
                                             <div class="result-header">
-                                                <span class="result-type">Medication</span>
+                                                <span class="result-type">Online Pharmacy</span>
                                                 <button class="save-item">
                                                     <i class="far fa-heart"></i>
                                                 </button>
                                             </div>
-                                            <h3 class="result-title">Dotarem (Gadoterate)</h3>
-                                            <p class="result-facility">MRI Contrast Agent</p>
-                                            <div class="result-price">$80 - $150 per dose</div>
-                                            <div class="result-metrics">
-                                                <span><i class="fas fa-star"></i> 4.5</span>
-                                                <span><i class="fas fa-prescription-bottle-alt"></i> Multiple pharmacies</span>
+                                            
+                                            <div class="pharmacy-result-content">
+                                                <img src="https://via.placeholder.com/80" alt="Cost Plus Drugs" class="pharmacy-image">
+                                                <div class="pharmacy-details">
+                                                    <h3 class="result-title">Cost Plus Drugs <i class="fas fa-award" style="color: var(--warning); font-size: 0.8em;"></i></h3>
+                                                    <p class="pharmacy-description">Best out-of-pocket price when insurance info is unavailable</p>
+                                                    <div class="pharmacy-price">$6.15</div>
+                                                    <div class="feature-list">
+                                                        <div class="feature-item"><i class="fas fa-check-circle"></i> Transparent pricing</div>
+                                                        <div class="feature-item"><i class="fas fa-check-circle"></i> No membership fees</div>
+                                                        <div class="feature-item"><i class="fas fa-check-circle"></i> Free shipping over $25</div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <a href="medication-details.html" class="view-details-btn">View Details</a>
+                                            <a href="#" class="view-details-btn">Select This Pharmacy</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <h3 class="section-subtitle">Other Pharmacy Options</h3>
+                                    
+                                    <div class="results-grid pharmacy-grid">
+                                        <!-- Vons Pharmacy -->
+                                        <div class="result-card">
+                                            <div class="result-header">
+                                                <span class="result-type">Grocery Pharmacy</span>
+                                                <div class="price-badge lowest">$2.00</div>
+                                            </div>
+                                            <h3 class="result-title">Vons Pharmacy</h3>
+                                            <p class="result-distance"><i class="fas fa-map-marker-alt"></i> 1.2 miles away</p>
+                                            <div class="result-metrics">
+                                                <span><i class="fas fa-clock"></i> Open until 9pm</span>
+                                            </div>
+                                            <a href="#" class="view-details-btn">Select</a>
                                         </div>
                                         
+                                        <!-- Albertsons -->
                                         <div class="result-card">
                                             <div class="result-header">
-                                                <span class="result-type">Medication</span>
-                                                <button class="save-item">
-                                                    <i class="far fa-heart"></i>
-                                                </button>
+                                                <span class="result-type">Grocery Pharmacy</span>
+                                                <div class="price-badge lowest">$2.00</div>
                                             </div>
-                                            <h3 class="result-title">Diazepam (Generic)</h3>
-                                            <p class="result-facility">For MRI Anxiety</p>
-                                            <div class="result-price">$8 - $15 per dose</div>
+                                            <h3 class="result-title">Albertsons (Sav-on)</h3>
+                                            <p class="result-distance"><i class="fas fa-map-marker-alt"></i> 2.5 miles away</p>
                                             <div class="result-metrics">
-                                                <span><i class="fas fa-star"></i> 4.6</span>
-                                                <span><i class="fas fa-prescription-bottle-alt"></i> Multiple pharmacies</span>
+                                                <span><i class="fas fa-clock"></i> Open until 8pm</span>
                                             </div>
-                                            <a href="medication-details.html" class="view-details-btn">View Details</a>
+                                            <a href="#" class="view-details-btn">Select</a>
+                                        </div>
+                                        
+                                        <!-- Rite Aid -->
+                                        <div class="result-card">
+                                            <div class="result-header">
+                                                <span class="result-type">Pharmacy</span>
+                                                <div class="price-badge">$9.80</div>
+                                            </div>
+                                            <h3 class="result-title">Rite Aid</h3>
+                                            <p class="result-distance"><i class="fas fa-map-marker-alt"></i> 0.8 miles away</p>
+                                            <div class="result-metrics">
+                                                <span><i class="fas fa-clock"></i> Open 24 hours</span>
+                                            </div>
+                                            <a href="#" class="view-details-btn">Select</a>
+                                        </div>
+                                        
+                                        <!-- Walgreens -->
+                                        <div class="result-card">
+                                            <div class="result-header">
+                                                <span class="result-type">Pharmacy</span>
+                                                <div class="price-badge">$12.70</div>
+                                            </div>
+                                            <h3 class="result-title">Walgreens</h3>
+                                            <p class="result-distance"><i class="fas fa-map-marker-alt"></i> 1.5 miles away</p>
+                                            <div class="result-metrics">
+                                                <span><i class="fas fa-clock"></i> Open until 10pm</span>
+                                            </div>
+                                            <a href="#" class="view-details-btn">Select</a>
+                                        </div>
+                                        
+                                        <!-- Walmart -->
+                                        <div class="result-card">
+                                            <div class="result-header">
+                                                <span class="result-type">Retail Pharmacy</span>
+                                                <div class="price-badge">$13.24</div>
+                                            </div>
+                                            <h3 class="result-title">Walmart</h3>
+                                            <p class="result-distance"><i class="fas fa-map-marker-alt"></i> 3.7 miles away</p>
+                                            <div class="result-metrics">
+                                                <span><i class="fas fa-clock"></i> Open until 11pm</span>
+                                            </div>
+                                            <a href="#" class="view-details-btn">Select</a>
+                                        </div>
+                                        
+                                        <!-- Walmart Neighborhood Market -->
+                                        <div class="result-card">
+                                            <div class="result-header">
+                                                <span class="result-type">Retail Pharmacy</span>
+                                                <div class="price-badge">$13.24</div>
+                                            </div>
+                                            <h3 class="result-title">Walmart Neighborhood Market</h3>
+                                            <p class="result-distance"><i class="fas fa-map-marker-alt"></i> 2.9 miles away</p>
+                                            <div class="result-metrics">
+                                                <span><i class="fas fa-clock"></i> Open until 10pm</span>
+                                            </div>
+                                            <a href="#" class="view-details-btn">Select</a>
+                                        </div>
+                                        
+                                        <!-- Costco -->
+                                        <div class="result-card">
+                                            <div class="result-header">
+                                                <span class="result-type">Membership Pharmacy</span>
+                                                <div class="price-badge">$19.16</div>
+                                            </div>
+                                            <h3 class="result-title">Costco</h3>
+                                            <p class="result-distance"><i class="fas fa-map-marker-alt"></i> 4.5 miles away</p>
+                                            <div class="result-metrics">
+                                                <span><i class="fas fa-info-circle"></i> Membership required</span>
+                                            </div>
+                                            <a href="#" class="view-details-btn">Select</a>
+                                        </div>
+                                        
+                                        <!-- CVS -->
+                                        <div class="result-card">
+                                            <div class="result-header">
+                                                <span class="result-type">Pharmacy</span>
+                                                <div class="price-badge">$19.67</div>
+                                            </div>
+                                            <h3 class="result-title">CVS Pharmacy</h3>
+                                            <p class="result-distance"><i class="fas fa-map-marker-alt"></i> 0.5 miles away</p>
+                                            <div class="result-metrics">
+                                                <span><i class="fas fa-clock"></i> Open until 9pm</span>
+                                            </div>
+                                            <a href="#" class="view-details-btn">Select</a>
+                                        </div>
+                                        
+                                        <!-- Target CVS -->
+                                        <div class="result-card">
+                                            <div class="result-header">
+                                                <span class="result-type">Retail Pharmacy</span>
+                                                <div class="price-badge">$19.67</div>
+                                            </div>
+                                            <h3 class="result-title">Target (CVS)</h3>
+                                            <p class="result-distance"><i class="fas fa-map-marker-alt"></i> 1.0 miles away</p>
+                                            <div class="result-metrics">
+                                                <span><i class="fas fa-clock"></i> Open until 10pm</span>
+                                            </div>
+                                            <a href="#" class="view-details-btn">Select</a>
                                         </div>
                                     </div>
                                 </div>
@@ -541,7 +728,12 @@
         </div>
     </footer>
 
+    <!-- Existing scripts -->
     <script src="search-results.js"></script>
     <script src="insurance-login.js"></script>
+    <script src="common.js"></script>
+    <script src="search-results-tab-handler.js"></script>
+    <!-- Add our new script -->
+    <script src="search-redirect.js"></script>
 </body>
 </html>
