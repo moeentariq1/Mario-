@@ -30,6 +30,86 @@
     border-bottom: 2px solid var(--primary);
 }
 
+/* Fix Search Bar to Match Homepage */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--surface);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-2) var(--spacing-4);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: 950px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.search-bar:focus-within {
+    box-shadow: var(--shadow-lg);
+}
+
+.search-section {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 150px;
+}
+
+.search-section i {
+    color: var(--text-tertiary);
+    margin-right: var(--spacing-2);
+}
+
+.search-section input {
+    flex: 1;
+    border: none;
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+    background-color: transparent;
+    padding: var(--spacing-2) 0;
+    min-width: 0;
+    font-size: 15px;
+    text-overflow: ellipsis;
+    padding: 12px 8px;
+}
+
+.search-section input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.search-section input::placeholder {
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.search-bar .search-section:first-child {
+    flex: 3;
+    min-width: 240px;
+}
+
+.search-divider {
+    width: 1px;
+    height: 32px; /* Increased height for better visibility */
+    background-color: var(--surface-alt);
+    opacity: 1; /* Ensure full visibility */
+    margin: 0 var(--spacing-2);
+}
+
+.search-bar .search-section:nth-child(3) {
+    margin-left: -100px;
+    position: relative;
+    z-index: 1;
+}
+
+.search-bar .search-divider:nth-child(2) {
+    margin-right: -20px;
+    position: relative;
+    z-index: 2;
+}
+
 .voice-search {
     color: var(--primary);
     background: transparent;
@@ -39,11 +119,13 @@
     padding: var(--spacing-2);
     border-radius: 50%;
     transition: background-color var(--transition-fast);
+    margin-left: auto;
     margin-right: var(--spacing-2);
 }
 
-.voice-search:hover {
-    background-color: rgba(46, 80, 119, 0.1);
+.search-bar .btn {
+    padding: 12px 20px;
+    font-size: 16px;
 }
 
 .suggestions {
@@ -781,14 +863,119 @@
     border-color: var(--primary-light);
 }
 
-/* Responsive adjustments for medicine filters */
-@media (max-width: 768px) {
-    .medicine-filters {
-        flex-direction: column;
-        gap: var(--spacing-2);
-    }
-    
-    .medicine-filter-item {
-        width: 100%;
-    }
+/* Pharmacy Section Styles - Enhanced Mario's Pick */
+
+.marios-pick-container {
+    margin-bottom: var(--spacing-5);
+    border: 2px solid #2271e6;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(to bottom right, rgba(34, 113, 230, 0.08), rgba(255, 255, 255, 1));
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(34, 113, 230, 0.15);
+}
+
+.marios-pick-header {
+    background: #2271e6;
+    padding: var(--spacing-3) var(--spacing-4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.marios-pick-badge {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: var(--font-size-xl); /* Much larger */
+    font-weight: 800; /* Extra bold */
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.marios-pick-badge i {
+    color: #ffdd00; /* Bright gold */
+    font-size: 1.2em;
+    margin-right: var(--spacing-3);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3)); /* Fixed the truncated drop-shadow property */
+}
+
+/* Profile Icon and Dropdown Styling */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.profile-dropdown {
+    position: relative;
+    margin-left: var(--spacing-2);
+}
+
+.profile-icon {
+    width: 42px; /* Increased size */
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(46, 80, 119, 0.1);
+    color: var(--primary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color var(--transition-fast);
+}
+
+.profile-icon i {
+    font-size: var(--font-size-xl); /* Larger icon */
+}
+
+.profile-icon:hover {
+    background-color: rgba(46, 80, 119, 0.2);
+}
+
+.profile-icon.active {
+    background-color: rgba(46, 80, 119, 0.2);
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    background-color: var(--surface);
+    border-radius: var(--radius-md);
+    min-width: 220px;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(46, 80, 119, 0.05);
+}
+
+.dropdown-item i {
+    color: var(--primary);
+    font-size: var(--font-size-base);
+    width: 20px;
+    text-align: center;
+}
+
+/* Add a divider between dropdown items */
+.dropdown-item + .dropdown-item {
+    border-top: 1px solid var(--surface-alt);
 }
