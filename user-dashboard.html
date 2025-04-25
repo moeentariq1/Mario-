@@ -124,45 +124,6 @@
                     </div>
                 </section>
                 
-                <section class="dashboard-section" id="recent-searches">
-                    <div class="section-header">
-                        <h2>Recent Searches</h2>
-                        <a href="search-results.html" class="view-all">View All Searches</a>
-                    </div>
-                    
-                    <div class="recent-searches-list">
-                        <div class="recent-search-item">
-                            <div class="search-info">
-                                <span class="search-query">Primary care doctor near me</span>
-                                <span class="search-date">Yesterday</span>
-                            </div>
-                            <a href="search-results.html" class="search-action">
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                        
-                        <div class="recent-search-item">
-                            <div class="search-info">
-                                <span class="search-query">Lisinopril price comparison</span>
-                                <span class="search-date">3 days ago</span>
-                            </div>
-                            <a href="search-results.html" class="search-action">
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                        
-                        <div class="recent-search-item">
-                            <div class="search-info">
-                                <span class="search-query">MRI lumbar spine cost</span>
-                                <span class="search-date">Last week</span>
-                            </div>
-                            <a href="search-results.html" class="search-action">
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </section>
-                
                 <section class="dashboard-section" id="saved-items">
                     <div class="section-header">
                         <h2>Saved Items</h2>
@@ -271,56 +232,41 @@
                         <a href="search-results.html" class="view-all">View All Procedures</a>
                     </div>
                     
-                    <div class="results-grid">
-                        <div class="result-card procedure">
-                            <div class="result-header">
-                                <span class="result-type">Imaging</span>
-                                <button class="save-item">
-                                    <i class="far fa-heart"></i>
-                                </button>
+                    <div class="dashboard-cards">
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-x-ray"></i>
                             </div>
-                            <h3 class="result-title">MRI, Lumbar Spine Without Contrast</h3>
-                            <p class="result-facility">Metro Imaging Center</p>
-                            <div class="result-price">$1,400 - $1,800</div>
-                            <div class="result-metrics">
-                                <span><i class="fas fa-star"></i> 4.8</span>
-                                <span><i class="fas fa-clock"></i> 15 min wait</span>
+                            <div class="card-content">
+                                <h3>MRI, Lumbar Spine Without Contrast</h3>
+                                <p>Metro Imaging Center</p>
+                                <p class="card-detail">$1,400 - $1,800</p>
+                                <a href="procedure-details.html" class="card-action">View Details</a>
                             </div>
-                            <a href="procedure-details.html" class="view-details-btn">View Details</a>
                         </div>
                         
-                        <div class="result-card procedure">
-                            <div class="result-header">
-                                <span class="result-type">Lab Test</span>
-                                <button class="save-item">
-                                    <i class="far fa-heart"></i>
-                                </button>
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-vial"></i>
                             </div>
-                            <h3 class="result-title">Comprehensive Metabolic Panel</h3>
-                            <p class="result-facility">City Laboratory Services</p>
-                            <div class="result-price">$75 - $120</div>
-                            <div class="result-metrics">
-                                <span><i class="fas fa-star"></i> 4.5</span>
-                                <span><i class="fas fa-clock"></i> 10 min wait</span>
+                            <div class="card-content">
+                                <h3>Comprehensive Metabolic Panel</h3>
+                                <p>City Laboratory Services</p>
+                                <p class="card-detail">$75 - $120</p>
+                                <a href="procedure-details.html" class="card-action">View Details</a>
                             </div>
-                            <a href="procedure-details.html" class="view-details-btn">View Details</a>
                         </div>
                         
-                        <div class="result-card procedure">
-                            <div class="result-header">
-                                <span class="result-type">Diagnostic</span>
-                                <button class="save-item">
-                                    <i class="far fa-heart"></i>
-                                </button>
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-lungs"></i>
                             </div>
-                            <h3 class="result-title">Chest X-Ray, Two Views</h3>
-                            <p class="result-facility">University Medical Center</p>
-                            <div class="result-price">$220 - $350</div>
-                            <div class="result-metrics">
-                                <span><i class="fas fa-star"></i> 4.6</span>
-                                <span><i class="fas fa-clock"></i> 25 min wait</span>
+                            <div class="card-content">
+                                <h3>Chest X-Ray, Two Views</h3>
+                                <p>University Medical Center</p>
+                                <p class="card-detail">$220 - $350</p>
+                                <a href="procedure-details.html" class="card-action">View Details</a>
                             </div>
-                            <a href="procedure-details.html" class="view-details-btn">View Details</a>
                         </div>
                     </div>
                 </section>
@@ -331,56 +277,41 @@
                         <a href="search-results.html" class="view-all">Find More Providers</a>
                     </div>
                     
-                    <div class="results-grid">
-                        <div class="result-card doctor">
-                            <div class="result-header">
-                                <span class="result-type">Primary Care</span>
-                                <button class="save-item">
-                                    <i class="far fa-heart"></i>
-                                </button>
+                    <div class="dashboard-cards">
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-user-md"></i>
                             </div>
-                            <h3 class="result-title">Dr. Sarah Johnson, MD</h3>
-                            <p class="result-facility">Downtown Family Practice</p>
-                            <div class="result-metrics">
-                                <span><i class="fas fa-star"></i> 4.9</span>
-                                <span><i class="fas fa-user-clock"></i> 2 days</span>
+                            <div class="card-content">
+                                <h3>Dr. Sarah Johnson, MD</h3>
+                                <p>Downtown Family Practice</p>
+                                <p class="card-detail">Primary Care • In-network</p>
+                                <a href="provider-details.html" class="card-action">View Profile</a>
                             </div>
-                            <div class="doctor-insurance">In-network with your plan</div>
-                            <a href="provider-details.html" class="view-details-btn">View Profile</a>
                         </div>
                         
-                        <div class="result-card doctor">
-                            <div class="result-header">
-                                <span class="result-type">Cardiology</span>
-                                <button class="save-item">
-                                    <i class="far fa-heart"></i>
-                                </button>
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-heartbeat"></i>
                             </div>
-                            <h3 class="result-title">Dr. Michael Chen, MD</h3>
-                            <p class="result-facility">Heart & Vascular Institute</p>
-                            <div class="result-metrics">
-                                <span><i class="fas fa-star"></i> 4.7</span>
-                                <span><i class="fas fa-user-clock"></i> 5 days</span>
+                            <div class="card-content">
+                                <h3>Dr. Michael Chen, MD</h3>
+                                <p>Heart & Vascular Institute</p>
+                                <p class="card-detail">Cardiology • In-network</p>
+                                <a href="provider-details.html" class="card-action">View Profile</a>
                             </div>
-                            <div class="doctor-insurance">In-network with your plan</div>
-                            <a href="provider-details.html" class="view-details-btn">View Profile</a>
                         </div>
                         
-                        <div class="result-card doctor">
-                            <div class="result-header">
-                                <span class="result-type">Dermatology</span>
-                                <button class="save-item">
-                                    <i class="far fa-heart"></i>
-                                </button>
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-allergies"></i>
                             </div>
-                            <h3 class="result-title">Dr. Lisa Rodriguez, MD</h3>
-                            <p class="result-facility">Metro Skin Care Center</p>
-                            <div class="result-metrics">
-                                <span><i class="fas fa-star"></i> 4.8</span>
-                                <span><i class="fas fa-user-clock"></i> 7 days</span>
+                            <div class="card-content">
+                                <h3>Dr. Lisa Rodriguez, MD</h3>
+                                <p>Metro Skin Care Center</p>
+                                <p class="card-detail">Dermatology • In-network</p>
+                                <a href="provider-details.html" class="card-action">View Profile</a>
                             </div>
-                            <div class="doctor-insurance">In-network with your plan</div>
-                            <a href="provider-details.html" class="view-details-btn">View Profile</a>
                         </div>
                     </div>
                 </section>
@@ -391,58 +322,49 @@
                         <a href="#" class="view-all">Manage Medications</a>
                     </div>
                     
-                    <div class="medications-list">
-                        <div class="medication-item">
-                            <div class="medication-icon">
+                    <div class="dashboard-cards">
+                        <div class="dashboard-card">
+                            <div class="card-icon">
                                 <i class="fas fa-pills"></i>
                             </div>
-                            <div class="medication-details">
-                                <h3 class="medication-name">Lisinopril 10mg</h3>
-                                <p class="medication-instructions">1 tablet daily</p>
-                                <div class="medication-meta">
-                                    <span class="refills">2 refills remaining</span>
-                                    <span class="pharmacy">CVS Pharmacy</span>
+                            <div class="card-content">
+                                <h3>Lisinopril 10mg</h3>
+                                <p>1 tablet daily</p>
+                                <p class="card-detail">2 refills remaining • CVS Pharmacy</p>
+                                <div class="card-actions">
+                                    <a href="#" class="card-action">Refill Now</a>
+                                    <a href="medication-details.html" class="card-action">Compare Prices</a>
                                 </div>
-                            </div>
-                            <div class="medication-actions">
-                                <button class="refill-btn">Refill Now</button>
-                                <button class="price-compare-btn">Compare Prices</button>
                             </div>
                         </div>
                         
-                        <div class="medication-item">
-                            <div class="medication-icon">
+                        <div class="dashboard-card">
+                            <div class="card-icon">
                                 <i class="fas fa-pills"></i>
                             </div>
-                            <div class="medication-details">
-                                <h3 class="medication-name">Atorvastatin 20mg</h3>
-                                <p class="medication-instructions">1 tablet daily at bedtime</p>
-                                <div class="medication-meta">
-                                    <span class="refills">3 refills remaining</span>
-                                    <span class="pharmacy">Walgreens</span>
+                            <div class="card-content">
+                                <h3>Atorvastatin 20mg</h3>
+                                <p>1 tablet daily at bedtime</p>
+                                <p class="card-detail">3 refills remaining • Walgreens</p>
+                                <div class="card-actions">
+                                    <a href="#" class="card-action">Refill Now</a>
+                                    <a href="medication-details.html" class="card-action">Compare Prices</a>
                                 </div>
-                            </div>
-                            <div class="medication-actions">
-                                <button class="refill-btn">Refill Now</button>
-                                <button class="price-compare-btn">Compare Prices</button>
                             </div>
                         </div>
                         
-                        <div class="medication-item">
-                            <div class="medication-icon">
+                        <div class="dashboard-card">
+                            <div class="card-icon">
                                 <i class="fas fa-capsules"></i>
                             </div>
-                            <div class="medication-details">
-                                <h3 class="medication-name">Metformin 500mg</h3>
-                                <p class="medication-instructions">1 tablet twice daily with meals</p>
-                                <div class="medication-meta">
-                                    <span class="refills">1 refill remaining</span>
-                                    <span class="pharmacy">CVS Pharmacy</span>
+                            <div class="card-content">
+                                <h3>Metformin 500mg</h3>
+                                <p>1 tablet twice daily with meals</p>
+                                <p class="card-detail">1 refill remaining • CVS Pharmacy</p>
+                                <div class="card-actions">
+                                    <a href="#" class="card-action">Refill Now</a>
+                                    <a href="medication-details.html" class="card-action">Compare Prices</a>
                                 </div>
-                            </div>
-                            <div class="medication-actions">
-                                <button class="refill-btn">Refill Now</button>
-                                <button class="price-compare-btn">Compare Prices</button>
                             </div>
                         </div>
                     </div>
