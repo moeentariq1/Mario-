@@ -1,0 +1,69 @@
+/* Custom styles for search functionality */
+.search-section input {
+    font-size: 15px; /* Slightly larger font size */
+    text-overflow: ellipsis; /* Add ellipsis for text that gets cut off */
+    padding: 12px 8px; /* Increase padding for taller search bar */
+}
+
+/* Adjust placeholder text color and style */
+.search-section input::placeholder {
+    opacity: 0.8;
+    font-size: 14px; /* Larger placeholder text */
+}
+
+/* Make first search section wider */
+.search-bar .search-section:first-child {
+    flex: 3; /* Give the first section even more space */
+    min-width: 240px; /* Increase minimum width */
+}
+
+/* Move the location section (second section) to start earlier */
+.search-bar .search-section:nth-child(3) {
+    margin-left: -100px; /* Increased from -65px to move it further left */
+    position: relative; /* Enable positioning context */
+    z-index: 1; /* Ensure it appears above other elements */
+}
+
+/* Adjust the divider to accommodate the location shift */
+.search-bar .search-divider:nth-child(2) {
+    margin-right: -20px; /* Increased from -8px to move divider further left */
+    position: relative; /* Enable positioning */
+    z-index: 2; /* Ensure divider appears above other elements */
+}
+
+/* Style for the datalist dropdown */
+.search-section input[list] {
+    background-position: right center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* Make the entire search bar bigger */
+.search-bar {
+    max-width: 950px; /* Increase max width even more */
+    width: 95%; /* Make it take up most of the container width */
+    margin: 0 auto;
+    padding: 8px 12px; /* Increase padding */
+}
+
+.search-bar .btn {
+    padding: 12px 20px; /* Larger button */
+    font-size: 16px; /* Larger font for button */
+}
+
+.search-divider {
+    height: 32px; /* Taller divider */
+}
+
+/* Search container width - make it wider */
+.search-container {
+    width: 100%;
+    max-width: 1000px; /* Wider container */
+    margin: 0 auto;
+}
+
+/* Medicine search result highlight */
+.search-bar input.medicine-match {
+    background-color: rgba(77, 161, 169, 0.1);
+    border-color: var(--primary);
+}
